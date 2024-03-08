@@ -1,0 +1,262 @@
+/* Full viewport settings */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevent scrolling on the body */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#countdownTimer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 20px;
+    display: none; /* Initially hide the countdown timer */
+    z-index: 999;
+    color: white;
+    margin: 10px;
+}
+
+.scrollable-div {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: #888 transparent; /* Thumb color and transparent track for Firefox */
+}
+
+/* Custom scrollbar for Webkit (Chrome, Safari) */
+.scrollable-div::-webkit-scrollbar {
+    width: 12px;
+}
+
+.scrollable-div::-webkit-scrollbar-track {
+    background: transparent; /* Attempt to keep the track as unobtrusive as possible */
+}
+
+.scrollable-div::-webkit-scrollbar-thumb {
+    background-color: #888; /* Visible scrollbar thumb */
+    border-radius: 6px;
+    border: 3px solid transparent; /* Optional: Adjust for thumb visibility against content */
+}
+
+/* Video management */
+#videoContainer {
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+    overflow: hidden;
+}
+
+#primary-video {
+    width: 92%;
+    /*width:90%;*/
+    height: auto;
+}
+
+.overlayDiv {
+    position: absolute;
+    /* background-color: red; /* NB!!! debug mode, red shows the hitbox colour, commenting this out with hide the hitbox colour and make hitbox invisible */
+    opacity: 0.7;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.overlayDivHidden {
+    position: absolute;
+    opacity: 0.7;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    display: none;
+}
+
+#bottomOverlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+}
+
+.full-screen-div {
+    display: none;
+    position: fixed;
+    top: 1.5%;
+    left: 5%;
+    width: 90%;
+    height: 97.5%;
+    background-image: url('media/screen.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    z-index: 30;
+}
+
+/* Ventruvian man icon divs (Text paragraphs) */
+.vent-close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    z-index: 33;
+    display: none;
+}
+
+.vent-dialog-div {
+    display: none;
+    position: fixed;
+    top: 1.5%;
+    left: 5%;
+    width: 90%;
+    height: 97.5%;
+    background-image: url('media/screen.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    z-index: 32;
+}
+
+.content {
+    box-sizing: border-box;
+    height: 200%; /* Ensure there's enough content to scroll */
+}
+
+/*Content management of mobile view-port | desktop */
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
+    .content-header-bold-red {
+        padding-top: 40px;
+        padding-left: 40px;
+        padding-right: 100px;
+        text-align: left;
+        color: #da381b;
+        text-shadow: 1px 1px 2px black;
+        font-size: 14pt;
+    }
+
+    .content-header-bold-blue {
+        padding-top: 40px;
+        padding-left: 40px;
+        padding-right: 100px;
+        text-align: left;
+        color: #0098f3;
+        text-shadow: 1px 1px 2px black;
+        font-size: 14pt;
+    }
+
+    .content-header-standard {
+        margin-left: 60px;
+        text-align: left;
+        color: #ffffff;
+        font-size: 13pt;
+        justify-content: left;
+    }
+
+    .content-section {
+        margin-left: 75px;
+        padding-right: 50px;
+        text-align: left;
+        color: white;
+        font-size: 12pt;
+    }
+}
+
+@media only screen and (min-device-width: 767px) {
+    .content {
+        text-align: center;
+        margin-left: 8%;
+        margin-top: 5%;
+        padding-right: 5%;
+    }
+
+    .content-header-bold-red {
+        text-align: left;
+        color: #da381b;
+        text-shadow: 1px 1px 2px black;
+        font-size: 18pt;
+        justify-content: left;
+    }
+
+    .content-header-bold-blue {
+        text-align: left;
+        color: #0098f3;
+        text-shadow: 1px 1px 2px black;
+        font-size: 18pt;
+        justify-content: left;
+    }
+
+    .content-header-standard {
+        margin-left: 80px;
+        text-align: left;
+        color: #ffffff;
+        font-size: 17pt;
+        justify-content: left;
+    }
+
+    .content-section {
+        margin-left: 110px;
+        text-align: left;
+        color: white;
+        font-size: 16pt;
+    }
+
+}
+
+/* Sphere scene */
+.alt-close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    z-index: 30;
+    display: none;
+}
+
+.sphere-full-screen-div {
+    display: none;
+    position: fixed;
+    top: 1.5%;
+    left: 5%;
+    width: 90%;
+    height: 97.5%;
+    background-image: url('media/screen.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    z-index: 31;
+}
+
+/* Alt Layers */
+.overlayTop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10.5%;
+    z-index: 10;
+
+}
+
+.overlayLeft {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 35.7%;
+    height: 100%;
+    z-index: 10;
+
+}
+
+.overlay-right {
+    position: fixed;
+    top: 0;
+    right: 0%;
+    width: 8.7%;
+    height: 100vh;
+    z-index: 10;
+}

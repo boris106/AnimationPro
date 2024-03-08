@@ -1,0 +1,3238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head title="Bility">
+    <link href="main.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+</head>
+<body bgcolor='black' onload='disableCursor();'>
+<div id="countdownTimer" STYLE='Border:1px solid white;padding:10px;'></div>
+<center>
+    <div id="videoContainer">
+
+        <!--Embed Video-->
+        <video id="primary-video">
+            <source src="media/video.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+
+        <!-- NO EVENT LISTENERS ATTACHED - THESE GRADIENTS COVER EDGES OF Video | Gradients	-->
+        <div class="overlayTop"><img src='media/GradientTop.png' style='width:100%;Height:100%;'> </IMG></div>
+        <div id="bottomOverlay"><!--/////////////////////////////////////////////////////////////////////////////////////////////////////////--></div>
+        <div class="overlayLeft"><img src='media/LeftGradient.png' style='width:100%;Height:100%;'> </IMG></div>
+        <div class="overlay-right"><img src='media/RightGradient.png' style='width:100%;Height:100%;'> </IMG></div>
+
+        <!-- CLICKABLE  DIVS - EVENT LISTENERS ATTACHED | Start Sequence -->
+        <div id="StartClick" class="overlayDiv"></div>
+        <div id="ClickBlueSphere" class=".overlayDivHidden"></div>
+
+        <!-- CLICKABLE PENT DIVS - EVENT LISTENERS ATTACHED | Second Sequence ( Split to 8 Naivation Quadrants ) | When clicked on any quadrant, navigate to the right sequence-->
+        <div id="Earth" class=".overlayDivHidden"></div>
+        <div id="Pent1" class=".overlayDivHidden"></div>
+        <div id="Pent2" class=".overlayDivHidden"></div>
+        <div id="Pent3" class=".overlayDivHidden"></div>
+        <div id="Pent4" class=".overlayDivHidden"></div>
+        <div id="Pent5" class=".overlayDivHidden"></div>
+        <div id="SphereL" class=".overlayDivHidden"></div>
+        <div id="SphereR" class=".overlayDivHidden"></div>
+        <!-- PENTAGON BUTTONS | Pentagon Buttons, click pentagon, run animation-->
+        <div id="PentButton1" class=".overlayDivHidden"></div>
+        <div id="PentButton2" class=".overlayDivHidden"></div>
+        <div id="PentButton3" class=".overlayDivHidden"></div>
+        <div id="PentButton4" class=".overlayDivHidden"></div>
+        <div id="PentButton5" class=".overlayDivHidden"></div>
+        <!-- OPEN TO FULL SCREEN PENTAGON INFO DIV BUTTONS -->
+        <div id="PentInfoHospot1" class=".overlayDivHidden"></div>
+        <div id="PentInfoHospot2" class=".overlayDivHidden"></div>
+        <div id="PentInfoHospot3" class=".overlayDivHidden"></div>
+        <div id="PentInfoHospot4" class=".overlayDivHidden"></div>
+        <div id="PentInfoHospot5" class=".overlayDivHidden"></div>
+
+        <!-- OPEN TO FULL SCREEN PENTAGON INFO DIV BUTTONS -->
+        <div id="SphereInfoHotspot1" class=".overlayDivHidden"></div>
+        <div id="SphereInfoHotspot2" class=".overlayDivHidden"></div>
+        <div id="SphereInfoHotspot3" class=".overlayDivHidden"></div>
+        <div id="SphereInfoHotspot4" class=".overlayDivHidden"></div>
+        <!---->
+        <div id="backButton" class=".overlayDivHidden"></div>
+        <div id="skipButton" class=".overlayDivHidden"></div>
+        <div id="hotspotButton" class=".overlayDivHidden"></div>
+        <!--MAIN NAVIGATION******************************************************
+	        All naivigation is set to skip unless the video has played to 10 seconds (Arrived at main menu)
+	        NAVIGATION SPHERE HITBOXES INSTANT SKIP
+	        ----------------------------------------------------------------------
+	        These spheres can be found in the bottom right hand corner of the video
+	        ------------------------------------------------------------------------->
+        <div id="main1" class="overlayDiv"></div>
+        <div id="main2" class="overlayDiv"></div>
+        <div id="main3" class="overlayDiv"></div>
+        <div id="main4" class="overlayDiv"></div>
+        <!--
+	NAVIGATION SPHERE HITBOXES PLAY ANIMATION
+	----------------------------------------------------------------------
+	These spheres can be found in the bottom right hand corner of the video
+	-----------------------------------------------------------------------
+	-->
+
+        <div id="mainPlay1" class=".overlayDivHidden"></div>
+        <div id="mainPlay2" class=".overlayDivHidden"></div>
+        <div id="mainPlay3" class=".overlayDivHidden"></div>
+        <div id="mainPlay4" class=".overlayDivHidden"></div>
+
+        <!--BACK FORWARD | Backward Forward Buttons Ventruvian Man -->
+        <div id="playForward" class=".overlayDivHidden"><img src='media/rotateIcon.png' style='width:105px; margin-top:15px;'></div>
+
+        <!-- VENTRUVIAN MAN HITBOX SET | Forward Buttons Ventruvian Man-->
+        <!--Starter hitbox for icons-->
+        <div id="vent-icons-blue-esig" class=""></div>
+        <div id="vent-icons-blue-internet" class=".overlayDivHidden"></div>
+        <div id="vent-icons-red-payments" class=".overlayDivHidden"></div>
+        <div id="vent-icons-red-accounts" class=".overlayDivHidden"></div>
+
+        <!--(1)Spin 2 seconds / show (1) / hide starter hitbox-->
+        <div id="vent-icons-red-crm" class=".overlayDivHidden"></div>
+        <div id="vent-icons-red-payments-alt" class=".overlayDivHidden"></div>
+        <div id="vent-icons-blue-esig-alt" class=".overlayDivHidden"></div>
+        <div id="vent-icons-blue-voipicon" class=".overlayDivHidden"></div>
+
+        <!--(2)Spin 2 seconds / show (2) / hide (1)-->
+        <div id="vent-icons-red-sales" class=".overlayDivHidden"></div>
+        <div id="vent-icons-red-crm-alt" class=".overlayDivHidden"></div>
+        <div id="vent-icons-blue-voipicon-alt" class=".overlayDivHidden"></div>
+        <div id="vent-icons-blue-text" class=".overlayDivHidden"></div>
+
+        <!--(3)Spin 2 seconds / show 3 / hide (2)-->
+        <div id="vent-icons-red-admin" class=".overlayDivHidden"></div>
+        <div id="vent-icons-red-sales-alt" class=".overlayDivHidden"></div>
+        <div id="vent-icons-blue-whatsapp" class=".overlayDivHidden"></div>
+        <div id="vent-icons-blue-text-alt" class=".overlayDivHidden"></div>
+
+        <!--(4)Spin 2 seconds / show 4 / hide 3 (2)-->
+        <div id="vent-icons-red-fulfillment" class=".overlayDivHidden"></div>
+        <div id="vent-icons-red-admin-alt" class=".overlayDivHidden"></div>
+        <div id="vent-icons-blue-whatsapp-alt" class=".overlayDivHidden"></div>
+        <div id="vent-icons-blue-email" class=".overlayDivHidden"></div>
+
+        <!--(4)Spin 2 seconds / show 5 / hide 4 (2)-->
+
+        <div id="vent-icons-red-accounts-alt" class=".overlayDivHidden"></div>
+        <div id="vent-icons-blue-email-alt" class=".overlayDivHidden"></div>
+        <div id="vent-icons-blue-internet-alt" class=".overlayDivHidden"></div>
+
+    </div>
+</center>
+
+<!-- hex Buttons-->
+<div id="closeButton1" class="alt-close-button" style='display:none;'>[x]</div>
+<div id="fullScreenDiv1" class="scrollable-div full-screen-div">
+    <div class="content">
+        <div class="content-header-bold-blue">
+            <b> Digital process technology presents the following features: </b><br><br>
+        </div>
+        <div class="content-header-standard">
+            Accounting
+        </div>
+        <div class="content-section">
+            <ul>
+                <li>A financial integration layer allows accurate capture, import, and reconciliation of financial transactions carried on the solution, rendering near real-time visibility</li>
+                <li>Accounting entries are generated from associated operational modules, including cashbooks, journals and up- and downstream source documents</li>
+                <li>Transactional entries may be integrated with consenting proprietary financial solutions or be exported as data for consumption by 3rd party accounting applications</li>
+                <li>Financial reporting is capable of being done from any integrated accounting software</li>
+                <li>Cashbook, AR, AP, vendors, customers, VAT control account</li>
+                <li>Integration with financial modules</li>
+            </ul>
+        </div>
+        <div class="content-header-standard">
+            Operational Autonomy
+        </div>
+        <div class="content-section">
+            <ul>
+                <li>Subject to appropriate assisted inputs & guidance in configuration, organizational operational autonomy is achieved & maintained</li>
+                <li>User access remains under organizational control without external input, unless requested</li>
+                <li> Daily operations are conducted and managed organizationally</li>
+            </ul>
+        </div>
+        <div class="content-header-standard">
+            Agile Change Support
+        </div>
+        <div class="content-section">
+            <ul>
+                <li>System improvements are made on an ongoing basis and released as sporadic updates</li>
+                <li>Routine updates are scheduled for least impact and are generally scheduled outside of normal operating hours</li>
+                <li>Organizational evolutionary needs are met by capable & agile change support</li>
+            </ul>
+        </div>
+        <div class="content-header-standard">
+            Delegations of Authority
+        </div>
+        <div class="content-section">
+            <ul>
+                <li>System-encoded segregation of duties & responsibilities</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="closeButton2" class="alt-close-button" style='display:none;'>[x]</div>
+<div id="fullScreenDiv2" class="scrollable-div full-screen-div">
+    <div class="content">
+        <div class="content-header-bold-blue">
+            <b> Access </b><br><br>
+        </div>
+        <div class="content-section">
+            User/operator cloud-based access is gained at any time through any internet capable device from anywhere in the world.
+            Access & ongoing user management is controlled organizationally through delegates, duly authorized for such purpose.
+            Access may be given modularly to work groups & individuals, to the exclusion of any unauthorized areas or levels of delegations of authority.
+            Access may be subjected to such authentication & restriction protocols as may be organizationally required or deemed appropriate.
+        </div>
+    </div>
+</div>
+<div id="closeButton3" class="alt-close-button" style='display:none;'>[x]</div>
+<div id="fullScreenDiv3" class="scrollable-div full-screen-div">
+    <div class="content">
+        <div class="content-header-bold-blue">
+            <b> Connectors and objects suitable to integrate with 3rd party applications, data-sources and reporting, featuring: </b><br><br>
+        </div>
+            <div class="content-header-standard">
+                Options
+            </div>
+            <div class="content-section">
+                <ul>
+                    <li>Multiple options including: API/FTP/WebServices(SOAP/REST)/ETL(store & forward capabilities)</li>
+                    <li>Standard connectors via enterprise service layer (ESB)</li>
+                    <li>Staging module for importing, validation, promoting of information</li>
+                    <li>Inputs are converted or integrated to automate/synchronize master data sources Business to Business (B2B)</li>
+                    <li>Automation of key processes between organizations for services- and supply chain enablement</li>
+                    <li>Automated/templated data exchange/export to external service/product providers</li>
+                </ul>
+            </div>
+
+            <div class="content-header-standard">
+                Application to Application (A2A)
+            </div>
+            <div class="content-section">
+                <ul>
+                    <li>Consolidation and normalization of data across 3rd party software applications & platforms</li>
+                    <li>Automated data transfers between applications</li>
+                </ul>
+            </div>
+
+            <div class="content-header-standard">
+                Financial
+            </div>
+            <div class="content-section">
+                <ul>
+                    <li>Automated import, and reconciliation of financial transactions for general ledger accounting</li>
+                    <li>Near real-time visibility & reporting on financial transactions</li>
+                    <li>Accounting entries generated from associated modules like cashbooks, journals and up- and downstream source documents. </li>
+                    <li>Transactional entries integrated with select accounting solutions or data export to 3rd party accounting applications.</li>
+                </ul>
+            </div>
+
+            <div class="content-header-standard">
+                Benefits
+            </div>
+            <div class="content-section">
+                <ul>
+                    <li>Avoidance of duplication & ensuring accuracy, synchronization, compatibility & scalability</li>
+                    <li>Efficiencies in processes, resources utilization & consolidated reporting across different data sources</li>
+                </ul>
+            </div>
+
+        </div>
+</div>
+<div id="closeButton4" class="alt-close-button" style='display:none;'>[x]</div>
+<div id="fullScreenDiv4" class="scrollable-div full-screen-div">
+    <div class="content">
+        <div class="content-header-bold-blue">
+            <b> Comprehensive client-centric configuration -models, -options & -modifications available to ensure fitness for purpose, including (for example) the following: </b><br><br>
+        </div>
+        <div class="content-header-standard">
+            Organization Config
+        </div>
+        <div class="content-section">
+            <ul>
+                <li>Configuration of entity & modular activation of selected components of technology</li>
+                <li>Entity-specific structural configuration like divisions, departments, branches & location sites</li>
+                <li>Forms the basis of all access control, restrictions, permissions, delegations of authority & segregation of duties & data access, per selected technology module</li>
+                <li>Involved 3rd party configuration for business associates, referrals, leads generators, external sales, brokers, distribution-/fulfilment-/service providers, etc</li>
+                <li>Individualised branding of internal user interface, 3rdparty-facing interactions & documentation</li>
+            </ul>
+        </div>
+        <div class="content-header-standard">
+            Organization Config
+        </div>
+        <div class="content-section">
+            <ul>
+                <li>Assigning permissions to users & operator-/support groups</li>
+                <li>Functional- & data restrictions, based on support group assignments per module</li>
+                <li>Users creation, linked to support groups and functional profiles</li>
+                <li>Login credentials, password policies enforcement & one-time pin (OTP)  authentication options available</li>
+            </ul>
+        </div>
+        <div class="content-header-standard">
+            Data Config
+        </div>
+        <div class="content-section">
+            <ul>
+                <li>Data consistency & quality requirements under templated data fields/drop-down selections</li>
+                <li>Data mapping & file formats</li>
+            </ul>
+        </div>
+        <div class="content-header-standard">
+            Product Config
+        </div>
+        <div class="content-section">
+            <ul>
+                <li>Products/Services/Fulfilment particulars, elements, options, variables, typification, rates, details, etc</li>
+                <li>Products & sub- or associated products relationships mapping & applicable qualification criteria</li>
+                <li>Automated unique identifier generation iro memberships, fulfilment & specified workflows</li>
+                <li>Products-/Services-/Fulfilment- specific review schedules</li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="content-header-standard">
+            Templates Config
+        </div>
+        <div class="content-section">
+            <ul>
+                <li>Product-specific template documentation & automated or manualised variables</li>
+                <li>Configuration of all other internal/external documentation/information in accordance with workflows</li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="content-header-standard">
+            Financial Config
+        </div>
+        <div class="content-section">
+            <ul>
+                <li>Collection bureau configuration (API, FTP, Data Import/Export)</li>
+                <li>Payment Methods (Debit Order, Pay@, Card, etc)</li>
+                <li>Collection Methods (Bordereaux, DebiCheck, EFT, NAEDO)</li>
+                <li>Collections/Payments details, including bank statement description short-codes</li>
+                <li>Commissions/Fees formularies & rates</li>
+                <li>3rd party splits, automated payments & purchase order scheduling</li>
+            </ul>
+        </div>
+        <div class="content-header-standard">
+            Tech Config
+        </div>
+        <div class="content-section">
+            <ul>
+                <li>Configuration of all elements of technical tools, functionalities, components and IOT outputs</li>
+                <li>Payment Methods (Debit Order, Pay@, Card, etc)</li>
+                <li>Capable of interfacing with existing or 3rd party telephony and recording solutions</li>
+                <li>Capable of integration with existing SMS or other text gateways or access to 3rd party gateways</li>
+                <li>Capable of integration with existing SMS or other text gateways or access to 3rd party gateways</li>
+                <li>All other such, capable of integration with the technology</li>
+            </ul>
+        </div>
+        <div class="content-header-standard">
+            Processes Config
+        </div>
+        <div class="content-section">
+            <ul>
+                <li>Automation of predictable & repetitive tasks</li>
+                <li>Configuration of processes & workflows to appropriate operational requirements</li>
+                <li>Quality assurance checkpoints & human intervention gateways</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="closeButton5" class="alt-close-button" style='display:none;'>[x]</div>
+<div id="fullScreenDiv5" class="scrollable-div full-screen-div">
+    <div class="content">
+    <div class="content-header-bold-blue">
+        <b> Powerful, comprehensive & real-time reporting to mandated delegates in accordance with organizational seniority access criteria. Dashboards with drill-down capacity & data export capability through QBE search streams to several formats. Reporting available in various formats, in relation to each configured data component, including: </b><br><br>
+    </div>
+    <div class="content-header-standard">
+        Operational
+    </div>
+    <div class="content-section">
+        <ul>
+            <li>Per data subject particulars including age, location (also mapped), language, etc</li>
+            <li>Per product/service type, components, features & elements, including geographical spread</li>
+            <li>Per organizational structures, divisions, departments, branches, sites, functional groups, managers, etc</li>
+            <li>Per modules & activities (e.g. sales/administration/fulfilment/CRM/collections/etc)</li>
+            <li>Per activities sub-components, like sales: per leads/origin, per agent, per product, per prospect particulars, per date & time, etc</li>
+            <li>Per communication/interaction methods like voice, text, email, apps, website, etc</li>
+            <li>Per profiling criteria like sales volumes, success ratios, fulfilment performance, etc</li>
+            <li>Per 3rd party performance indicators & distribution, etc</li>
+            <li>Per any other digitally measurable criteria</li>
+            <li></li>
+        </ul>
+    </div>
+        <div class="content-header-standard">
+            Financial
+        </div>
+        <div class="content-section">
+            <ul>
+                <li>Per client accounts & statuses</li>
+                <li>Collections: per client, per product, per method, per date, per 3rd party (e.g. payment splits)</li>
+                <li>Income & expenses</li>
+                <li>NAEDO strike dates: per debit run, per product, per client, etc</li>
+                <li>Costs of sales & fulfilment costs: per product/type, per client, per agent, per method, etc</li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="content-header-standard">
+            Statistical
+        </div>
+        <div class="content-section">
+            <ul>
+                <li>Performance of organizational structures, functional groups & near real-time identification of bottlenecks</li>
+                <li>Tracking of product/service trends & preferences</li>
+                <li>Statistical analysis of every desired digital component of end-to-end processes & workflows</li>
+            </ul>
+        </div>
+        <div class="content-header-standard">
+            Analytical
+        </div>
+        <div class="content-section">
+            <ul>
+                <li>Business Intelligence reports & views for authorized management</li>
+            </ul>
+        </div>
+        <div class="content-header-standard">
+            Ad hoc
+        </div>
+        <div class="content-section">
+            <ul>
+                <li>Empowerment of mandated users to self-create reports in respect of any vector</li>
+                <li>Supported creation of reports as and when needed</li>
+            </ul>
+        </div>
+</div>
+</div>
+
+<!-- SPHERE CLOSE BUTTONS -->
+
+<div id="SpherecloseButton1" class="alt-close-button" style='display:none;'>[x]</div>
+<div id="SpherefullScreenDiv1" class="sphere-full-screen-div scrollable-div">
+    <div class="content">
+        <div class="content-header-bold-red">
+            <b> A rich set of features hosted in secure commercial environments protect data from unauthorized access. Logical, multi-tiered access control structures ensure authentication enforcement on all levels, including: </b><br><br>
+        </div>
+        <div class="content-section">
+            <ul>
+                <li>Server</li>
+                <li>Application</li>
+                <li>Database</li>
+                <li>Data row</li>
+                <li>Field</li>
+                <li>Functionality</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="SpherecloseButton2" class="alt-close-button" style='display:none; '>[x]</div>
+<div id="SpherefullScreenDiv2" class="sphere-full-screen-div scrollable-div">
+
+    <div class="content">
+        <div class="content-section">
+        The solution is hosted in multiple, geographically separated, datacentres & built on proven and globally supported operating system and database technology.
+        It is exceedingly stable with a higher than 99% uptime year on year.
+        Data is regularly backed up, based on a rugged maintenance schedule,
+        inclusive of disaster recovery redundancy.
+        </div>
+    </div>
+</div>
+
+<div id="SpherecloseButton3" class="alt-close-button" style='display:none; '>[x]</div>
+<div id="SpherefullScreenDiv3" class="sphere-full-screen-div scrollable-div">
+
+    <div class="content">
+        <div class="content-header-bold-red">
+            <b> Comprehensive access tracking & change audit & reporting, including : </b><br><br>
+        </div>
+        <div class="content-section">
+            <ul>
+                <li>Audit logs & reports</li>
+                <li>User access tracking, including dates & times</li>
+                <li>Leads assignments & limitations tracking</li>
+                <li>Protected data change event tracking & user/operator identification</li>
+                <li>Automated recorded audit trail of specific workflow processes like DebiCheck, etc</li>
+                <li>Audit trail and indexing of all digital documentation & interaction information</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="SpherecloseButton4" class="alt-close-button" style='display:none; '>[x]</div>
+<div id="SpherefullScreenDiv4" class="sphere-full-screen-div scrollable-div">
+
+    <div class="content">
+        <div class="content-header-bold-red">
+            <b> Embedded & enforced compliance to: </b><br><br>
+        </div>
+        <div class="content-section">
+            <ul>
+                <li> Applicable data protection laws & regulations </li>
+                <li> Industry- & product specific regulatory requirements, subject to organizational guidance given </li>
+                <li> Organizational data quality- & consistency parameters </li>
+                <li>Scripted processes & uniform standardized interaction templates, where appropriate</li>
+                <li>Embedded verification & validation steps & hurdles, where required</li>
+                <li>Full audit trail of all steps followed by users/operators/agents</li>
+                <li>Configurable restrictions & guides for users, including products/services packages (simple/composite), product-specific requirements & validations, pricing protocols & restrictions, collections options, etc</li>
+                <li>Compliance management control, comprehensive audit trail & reporting</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!--Ventruvian man Icons Red and Content divs | Red Icons-->
+<div id="vent-icons-red-fulfillment-close-button" class="vent-close-button" style='display:none; '>[x]</div>
+<div id="vent-icons-red-fulfillment-content-div" class="vent-dialog-div scrollable-div">
+    <div class="content">
+        <div class="content-header-bold-red">
+            <b>Data-driven functionalities facilitating appropriate product-specific fulfilment, featuring: </b><br><br>
+        </div>
+        <div class="content-header-standard">
+            Case Handling
+        </div>
+        <div class="content-section">
+            <ul>
+                <li> Service/product intervention/facilitation requests & claims </li>
+                <li> Automated, templated & standardised processes, procedures, documents & flows </li>
+                <li> Information capturing, typification, documents administration & digital communications </li>
+                <li> Validation of subjects, products, statuses, entitlements, requirements, exclusions & limitations </li>
+                <li> Fulfilment history visibility </li>
+            </ul>
+        </div>
+        <div class="content-header-standard">
+            Case Management
+        </div>
+        <div class="content-section">
+            <ul>
+                <li> Quality control with embedded internal service level- & compliancy assurance mechanisms</li>
+                <li> Oversight & approval protocols under mandated delegations of authority Case Audit </li>
+            </ul>
+        </div>
+        <div class="content-header-standard">
+            Case Audit
+        </div>
+        <div class="content-section">
+            <ul>
+                <li> Queries & investigations </li>
+                <li> Comprehensive record & audit trail of fulfilment activities</li>
+            </ul>
+            <div class="content-header-standard">
+                Supplier Management
+            </div>
+            <div class="content-section">
+                <ul>
+                    <li> Automated & templated supply & service requests </li>
+                    <li> Supplier service level compliance tracking </li>
+                </ul>
+            </div>
+            <div class="content-header-standard">
+                Fulfilment Management
+            </div>
+            <div class="content-section">
+                <ul>
+                    <li> Fulfilment register & dashboards with real-time status tracking </li>
+                    <li> Financial reporting in respect of entire fulfilment value chain </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="vent-icons-red-admin-close-button" class="vent-close-button" style='display:none; '>[x]</div>
+<div id="vent-icons-red-admin-content-div" class="vent-dialog-div scrollable-div">
+    <div class="content">
+        <div class="content-header-bold-red">
+            <b>Comprehensive searchable administration interface, providing a consolidated view of all information relating to a data subject/object, facilitating management, automation & initiation of tasks, featuring: </b><br><br>
+        </div>
+        <div class="content-header-standard">
+            Administration Console
+        </div>
+        <div class="content-section">
+            <ul>
+                <li>Permission-managed portal, providing access to all/selected subject information from central console</li>
+                <li> Templated data capturing/import & filtered database search & management</li>
+                <li> Managed 3rd party/technological interface access</li>
+            </ul>
+        </div>
+        <div class="content-header-standard">
+            Subject Data
+        </div>
+        <div class="content-section">
+            <ul>
+                <li>
+                    Personal details, contact information, geographical location & language preferences
+                    collection/payment methods & dates, product packages & product-specific data requirements
+                </li>
+                <li> Automated unique identifier generation</li>
+                <li> Subjects’ associations, linked subjects, beneficiaries, dependants, nominees, etc</li>
+                <li> Full interaction history, including digital, text & audio communication</li>
+            </ul>
+        </div>
+        <br>
+        <div class="content-header-standard">
+            Document Management
+        </div>
+        <div class="content-section">
+            <ul>
+                <li>Automated template- & personalised documentation generation & distribution</li>
+                <li> Documents distribution record per subject/product</li>
+                <li> Templates access, change management audit trail & requirements-driven indexing</li>
+            </ul>
+        </div>
+
+        <div class="content-header-standard">
+            Products Data
+        </div>
+        <div class="content-section">
+            <ul>
+                <li> Products, subscriptions, particulars, features, limits, exclusions, entitlements & dates</li>
+                <li> Products changes & statuses (eg active, pending, suspended, cancelled, etc)</li>
+            </ul>
+        </div>
+        <div class="content-header-standard">
+            Financial Data
+        </div>
+        <div class="content-section">
+            <ul>
+                <li> Subject account & real-time status</li>
+                <li> Banking details, authorisations & changes</li>
+                <li> Collections/payments authorisations & history</li>
+                <li> Fulfilment accounting & history</li>
+            </ul>
+        </div>
+        <div class="content-header-standard">
+            Data Change Management
+        </div>
+        <div class="content-section">
+            <ul>
+                <li>Assignment rules</li>
+                <li>Updates to information & date-stamped change management audit trail</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="vent-icons-red-sales-close-button" class="vent-close-button" style='display:none; '>[x]</div>
+<div id="vent-icons-red-sales-content-div" class="vent-dialog-div scrollable-div">
+    <div class="content">
+        <div class="content-header-bold-red">
+            <b>Sales made through- or supported by any of the digital tools. Comprehensive configurable sales interface, featuring: </b><br><br>
+        </div>
+        <div class="content-header-standard">
+            Data Management
+        </div>
+        <div class="content-section">
+            <ul>
+                <li> Configurable leads import console for sales managers</li>
+                <li> Import from external data sources including csv, excel, webservices, etc</li>
+                <li> Data normalization, translation & validation functionality & promotion from staging to live</li>
+                <li> Bulk data updates, flagging import batches for analysis and reports & exception handling</li>
+                <li> Profiled leads allocation to individuals & sales groups, based on agent- & product configurations</li>
+            </ul>
+        </div>
+        <br>
+        <div class="content-header-standard">
+            Sales Console
+        </div>
+        <div class="content-section">
+            <ul>
+                <li>Consolidated sales console per agent/support group</li>
+                <li> Summary view & searchable on all underlying data fields</li>
+                <li> Easy navigation with colour coded filtering & tracking sales by status</li>
+                <li> Automated processing & access control to leads/dialler</li>
+                <li>
+                    Onboarding guides & scripts for sales staff, including pricing options,<br>
+                    collection/payment methods & dates, product packages & product-specific data requirements
+                </li>
+                <li> Embedded industry-specific sales compliance requirements & scripting</li>
+                <li> Account verification function & historical engagements with prospect</li>
+            </ul>
+        </div>
+        <br>
+        <div class="content-header-standard">
+            Sales Reporting
+        </div>
+        <br>
+        <div class="content-section">
+            <ul>
+                <li> Reports per source/product/agent/date/period</li>
+                <li> Sales dashboards & history</li>
+                <li> Performance tracking (eg conversion rates/target vs actual/commissions etc)</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="vent-icons-blue-whatsapp-close-button" class="vent-close-button" style='display:none; '>[x]</div>
+<div id="vent-icons-blue-whatsapp-content-div" class="vent-dialog-div scrollable-div">
+    <div class="content">
+        <div class="content-header-bold-blue">
+          Integration with organizational WhatsApp channels/chatbots & templated responses
+        </div>
+    </div>
+</div>
+
+<div id="vent-icons-red-payments-close-button" class="vent-close-button" style='display:none; '>[x]</div>
+<div id="vent-red-icons-payments-content-div" class="vent-dialog-div scrollable-div">
+    <div class="content">
+        <div class="content-header-bold-red">
+            <b>Collection of continuous & once-off payments by templated & automated processes based on product/object configuration, through various payment methods, featuring:</b><br><br>
+        </div>
+        <div class="content-header-standard">
+            Collections
+        </div>
+        <div class="content-section">
+            <ul>
+                <li> Creation & scheduling of automated collections under controlled validation protocols</li>
+                <li> Configurable validations linked to collection commercials QCM/QCIDV/QCAVSR/QCAHV/CDV, etc</li>
+                <li> Based on individual subject & product (eg singular/composite & continuous/once-off)</li>
+                <li> Configurable payment methods per client (if preferred collection bureau is integrated)</li>
+                <li> Collection dates & time thresholds for inception/cancellation of current/future transactions</li>
+                <li> Account verification functionality & system driven error handling</li>
+                <li> Automated workflow execution based on collection outcomes</li>
+                <li> Automated collection registration with collections bureau & integration to financial elements</li>
+            </ul>
+        </div>
+        <br>
+        <div class="content-header-standard">
+            Payment Methods
+        </div>
+        <div class="content-section">
+            <ul>
+                <li> Payment Methods like Debit Order, Pay@, Card, etc</li>
+                <li> Collection Methods including Bordereaux, DebiCheck, EFT, NAEDO</li>
+                <li> All instances offer financial transaction rules and financial reconciliation Payment & Reversal Splits</li>
+                <li> Allocations of payments & reversals to product components, relational cost of sales & 3rd parties</li>
+
+            </ul>
+        </div>
+
+        <div class="content-header-standard">
+            Payment Methods
+        </div>
+        <div class="content-section">
+            <ul>
+                <li> Payment Methods like Debit Order, Pay@, Card, etc</li>
+                <li> Collection Methods including Bordereaux, DebiCheck, EFT, NAEDO</li>
+                <li> All instances offer financial transaction rules and financial reconciliation Payment & Reversal Splits</li>
+            </ul>
+        </div>
+
+        <div class="content-header-standard">
+            Payment & Reversal Splits
+        </div>
+        <div class="content-section">
+            <ul>
+                <li> Allocations of payments & reversals to product components, relational cost of sales & 3rd parties</li>
+                <li> Payment splits by percentages or fixed apportionment</li>
+                <li> Scheduling of resultant transactions like purchase- & sales orders internally or to 3rd parties</li>
+                <li> Reversals options to either off-set against future purchase orders or general ledger write-off provisions</li>
+            </ul>
+        </div>
+
+        <div class="content-header-standard">
+            Reporting
+        </div>
+        <div class="content-section">
+            <ul>
+                <li> Near real-time reporting by collection status (paid/unpaid/disputed/reversal/etc)</li>
+                <li> Collections/reversals information per subject/product/method/3rd party recipient/date/period/etc</li>
+                <li> Collection dates, statuses & history per subject</li>
+                <li> Searchable console enabling filtering & datafiles/bordereaux import/export</li>
+                <li> Income & expenses</li>
+                <li> NAEDO strike dates per collections run per product/subject</li>
+                <li> Sales agent profiling based on successful/unsuccessful sales</li>
+                <li> Configurable business intelligence reports, dashboards & views</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="vent-icons-red-accounts-close-button" class="vent-close-button" style='display:none; '>[x]</div>
+<div id="vent-icons-red-accounts-content-div" class="vent-dialog-div scrollable-div">
+  <div class="content">
+      <div class="content-header-bold-red">
+          With integrated payments/collections functionality, client accounts feature:
+      </div>
+      <div class="content-section">
+        <ul>
+            <li> Dashboard & reports-driven debtor control, age analysis & management </li>
+            <li> General ledger export accounting </li>
+        </ul>
+      </div>
+  </div>
+</div>
+
+<div id="vent-icons-red-crm-close-button" class="vent-close-button" style='display:none; '>[x]</div>
+<div id="vent-icons-red-crm-content-div" class="vent-dialog-div scrollable-div">
+    <div class="content">
+        <div class="content-header-bold-red">
+            <b>Fully integrated & consolidated Customer Relationship Management functionality, featuring: </b><br>
+            <br>
+        </div>
+        <div class="content-header-standard">
+            Communications
+        </div>
+        <div class="content-section">
+            <ul>
+                <li> External & internal enquiries ticketing & services requests logging through various interfaces </li>
+                <li> Standardised service level flows & quality assurance mechanisms with knowledge management tools</li>
+                <li> Templated & scripted responses to standard/frequently encountered enquiries</li>
+                <li> Automated/manual email responses & functional links to approvals & administration</li>
+                <li> Integration with own service delivery technologies like text, chatbots & WhatsApp channels </li>
+                <li> Dialler functionality available or integration with local telephony solution </li>
+                <li> VOIP communications & recording </li>
+            </ul>
+        </div>
+        <div class="content-header-standard">
+            Communications
+        </div>
+        <div class="content-section">
+            <ul>
+                <li> Automated/manual & templated complaints handling processes & procedures </li>
+                <li> Configurable industry-specific regulatory compliance assurance</li>
+            </ul>
+        </div>
+        <div class="content-header-standard">
+            CRM Management
+        </div>
+        <div class="content-section">
+            <ul>
+                <li> Complete linked record of all client interactions </li>
+                <li> Full services, fulfilment & complaints history at a glance </li>
+            </ul>
+        </div>
+        <div class="content-header-standard">
+            CRM Reporting
+        </div>
+        <div class="content-section">
+            <ul>
+                <li> Real-time CRM dashboards & reports </li>
+                <li> Quality assurance & service level tracking </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!--Blue Icons-->
+<div id="vent-icons-blue-internet-close-button" class="vent-close-button" style='display:none; '>[x]</div>
+<div id="vent-icons-blue-internet-content-div" class="vent-dialog-div scrollable-div">
+    <div class="content">
+        <div class="content-header-bold-red">
+            <b>Data-driven functionalities facilitating appropriate product-specific fulfilment, featuring: </b><br><br>
+        </div>
+        <div class="content-header-standard">
+            Case Handling
+        </div>
+        <div class="content-section">
+            <ul>
+                <li> Service/product intervention/facilitation requests & claims</li>
+                <li> Automated, templated & standardised processes, procedures, documents & flows</li>
+                <li> Information capturing, typification, documents administration & digital communications</li>
+                <li> Validation of subjects, products, statuses, entitlements, requirements, exclusions & limitations</li>
+                <li> Fulfilment history visibility</li>
+            </ul>
+        </div>
+        <br>
+        <div class="content-header-standard">
+            Case Management
+        </div>
+        <div class="content-section">
+            <ul>
+                <li> Quality control with embedded internal service level- & compliancy assurance mechanisms</li>
+                <li> Oversight & approval protocols under mandated delegations of authority</li>
+
+            </ul>
+        </div>
+        <br>
+        <div class="content-header-standard">
+            Case Audit
+        </div>
+        <div class="content-section">
+            <ul>
+                <li> Queries & investigations</li>
+                <li> Comprehensive record & audit trail of fulfilment activities</li>
+            </ul>
+        </div>
+
+        <div class="content-header-standard">
+            Supply Management
+        </div>
+        <div class="content-section">
+            <ul>
+                <li> Automated & templated supply & service requests</li>
+                <li> Supplier service level compliance tracking</li>
+            </ul>
+        </div>
+
+        <div class="content-header-standard">
+            Fulfilment Reporting
+        </div>
+        <div class="content-section">
+            <ul>
+                <li> Fulfilment register & dashboards with real-time status tracking</li>
+                <li> Financial reporting in respect of entire fulfilment value chain</li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+<div id="vent-icons-blue-email-close-button" class="vent-close-button" style='display:none; '>[x]</div>
+<div id="vent-icons-blue-email-content-div" class="vent-dialog-div scrollable-div">
+    <div class="content">
+        <div class="content-header-bold-blue">
+            <b>Integration with system mailboxes, featuring:</b><br><br>
+        </div>
+        <div class="content-section">
+            <ul>
+                <li> Standardised email templates for headers, footers, subject fields, etc </li>
+                <li> Templated email content, both incoming and outgoing </li>
+                <li> Automated linking setup </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="vent-icons-blue-text-close-button" class="vent-close-button" style='display:none; '>[x]</div>
+<div id="vent-icons-blue-text-content-div" class="vent-dialog-div scrollable-div">
+    <div class="content">
+        <div class="content-header-bold-blue">
+            <b>Integrated messaging gateway, featuring:</b><br><br>
+        </div>
+        <div class="content-section">
+            <ul>
+                <li> USSD and/or SMS and/or Smart SMS </li>
+                <li> Automated linking setup </li>
+                <li> SMS Templates & templated content </li>
+                <li> Notification based on pre-defined workflow actions </li>
+                <li> Mobile ** </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="vent-icons-blue-voip-close-button" class="vent-close-button" style='display:none; '>[x]</div>
+<div id="vent-icons-blue-voip-content-div" class="vent-dialog-div scrollable-div">
+    <div class="content">
+        <div class="content-header-bold-blue">
+            <b>Various inbound & outbound voice solutions are possible, including: </b><br>
+            <br>
+        </div>
+        <div class="content-header-standard">
+            Dialler
+        </div>
+        <div class="content-section">
+            <ul>
+                <li> Integrated off-the-shelf dialler (click-to-dial) options are available </li>
+                <li> Integration with existing VOIP solutions possible (subject to supplier cooperation) </li>
+            </ul>
+        </div>
+        <div class="content-header-standard">
+            Telephony
+        </div>
+        <div class="content-section">
+            <ul>
+                <li> Integration with local telephony solution possible (subject to supplier capability) </li>
+            </ul>
+        </div>
+        <div class="content-header-standard">
+            Telephony
+        </div>
+        <div class="content-section">
+            <ul>
+                <li> Full integration of voice solutions with sales/administration/CRM databases </li>
+                <li> Linked to client interaction history </li>
+            </ul>
+        </div>
+        <div class="content-header-standard">
+            Reporting
+        </div>
+        <div class="content-section">
+            <ul>
+                <li> Consolidated and/or operator-specific views, statistics & performance tracking </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="vent-icons-blue-esig-content-close-button" class="vent-close-button" style='display:none; '>[x]</div>
+<div id="vent-icons-blue-esig-content-div" class="vent-dialog-div scrollable-div">
+    <div class="content">
+        <div class="content-header-bold-blue">
+          Automated online signature of documents via digital solution as part of any process
+        </div>
+    </div>
+</div>
+
+<!----------------------------------->
+<script>
+    //CREATE VIDEO OBJECT
+    var video = document.getElementById('primary-video');
+    //****************************************************************************************************************************************************************//
+    //                                                                             FUNCTIONS																		  //
+    //****************************************************************************************************************************************************************//
+    var ShouldThePlayForwardButtonBeVisible = 0;
+
+    function hideAllBlockElements() {
+        // Get all elements on the page
+        var allElements = document.querySelectorAll('*');
+
+        // Iterate through all elements
+        Array.prototype.forEach.call(allElements, function (el) {
+            // Get the computed style of the element
+            var style = window.getComputedStyle(el);
+
+            // Check if the display property is 'block'
+            if (style.display === 'block') {
+                // Set the element's display property to 'none'
+                el.style.display = 'none';
+            }
+        });
+    }
+
+    //Red icons
+    function displayAccountsContentDivGroup() {
+        document.getElementById('vent-icons-red-accounts-content-div').style.display = 'block';
+        document.getElementById('vent-icons-red-accounts-close-button').style.display = 'block';
+    }
+    function displayCRMContentDivGroup() {
+        document.getElementById('vent-icons-red-crm-content-div').style.display = 'block';
+        document.getElementById('vent-icons-red-crm-close-button').style.display = 'block';
+    }
+    function displaySalesContentDivGroup() {
+        document.getElementById('vent-icons-red-sales-content-div').style.display = 'block';
+        document.getElementById('vent-icons-red-sales-close-button').style.display = 'block';
+    }
+    function displayAdminContentDivGroup(){
+        document.getElementById('vent-icons-red-admin-content-div').style.display = 'block';
+        document.getElementById('vent-icons-red-admin-close-button').style.display = 'block';
+    }
+    function displayPaymentsContentDivGroup() {
+        document.getElementById('vent-red-icons-payments-content-div').style.display = 'block';
+        document.getElementById('vent-icons-red-payments-close-button').style.display = 'block';
+    }
+    function displayFulfillmentContentDivGroup() {
+        document.getElementById('vent-icons-red-fulfillment-content-div').style.display = 'block';
+        document.getElementById('vent-icons-red-fulfillment-close-button').style.display = 'block';
+    }
+
+    //Blue Icons
+    function displayInternetIconsContentDivGroup() {
+        document.getElementById('vent-icons-blue-internet-close-button').style.display = 'block';
+        document.getElementById('vent-icons-blue-internet-content-div').style.display = 'block';
+    }
+    function displayESignatureContentDivGroup() {
+        document.getElementById('vent-icons-blue-esig-content-div').style.display = 'block';
+        document.getElementById('vent-icons-blue-esig-content-close-button').style.display = 'block';
+    }
+    function displayVoipIconContentDivGroup() {
+        document.getElementById('vent-icons-blue-voip-content-div').style.display = 'block';
+        document.getElementById('vent-icons-blue-voip-close-button').style.display = 'block';
+    }
+    function displayTextIconContentDivGroup() {
+        document.getElementById('vent-icons-blue-text-content-div').style.display = 'block';
+        document.getElementById('vent-icons-blue-text-close-button').style.display = 'block';
+    }
+    function displayWhatsappContentDivGroup() {
+        document.getElementById('vent-icons-blue-whatsapp-content-div').style.display = 'block';
+        document.getElementById('vent-icons-blue-whatsapp-close-button').style.display = 'block';
+    }
+    function displayEmailContentDivGroup() {
+        document.getElementById('vent-icons-blue-email-content-div').style.display = 'block';
+        document.getElementById('vent-icons-blue-email-close-button').style.display = 'block';
+    }
+
+    var Ticker = 0;
+/////////////////////////////////////////////////////////// 
+    var ballFlag = 4;
+
+    function handleForward() {
+        switch (ballFlag) {
+            case 4:
+                Play2Seconds();
+                break;
+            case 3:
+                playToTime(2);
+                break;
+            default:
+                Play2Seconds();
+        }
+    }
+///////////////////////////////////////////////////////////
+
+    function Play2Seconds() {
+        if (Ticker == 0) {
+
+            //HIDE-------------------------------------------
+            var element = document.getElementById("vent-icons-blue-esig");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            var element = document.getElementById("vent-icons-blue-internet");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            var element = document.getElementById("vent-icons-red-payments");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            var element = document.getElementById("vent-icons-red-accounts");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+            //SHOW-------------------------------------------
+            var element = document.getElementById("vent-icons-red-crm");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            var element = document.getElementById("vent-icons-red-payments-alt");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            var element = document.getElementById("vent-icons-blue-esig-alt");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            var element = document.getElementById("vent-icons-blue-voipicon");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            Ticker++;
+        } else if (Ticker == 1) {
+
+            //HIDE-------------------------------------------
+            var element = document.getElementById("vent-icons-red-crm");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            var element = document.getElementById("vent-icons-red-payments-alt");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            var element = document.getElementById("vent-icons-blue-esig-alt");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            var element = document.getElementById("vent-icons-blue-voipicon");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+
+            //SHOW-------------------------------------------
+            var element = document.getElementById("vent-icons-red-sales");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            var element = document.getElementById("vent-icons-red-crm-alt");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            var element = document.getElementById("vent-icons-blue-voipicon-alt");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            var element = document.getElementById("vent-icons-blue-text");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            Ticker++;
+        } else if (Ticker == 2) {
+
+            //HIDE-------------------------------------------
+            var element = document.getElementById("vent-icons-red-sales");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            var element = document.getElementById("vent-icons-red-crm-alt");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            var element = document.getElementById("vent-icons-blue-voipicon-alt");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            var element = document.getElementById("vent-icons-blue-text");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+
+            //SHOW-------------------------------------------
+            var element = document.getElementById("vent-icons-red-admin");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            var element = document.getElementById("vent-icons-red-sales-alt");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            var element = document.getElementById("vent-icons-blue-whatsapp");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            var element = document.getElementById("vent-icons-blue-text-alt");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            Ticker++;
+        } else if (Ticker == 3) {
+
+            //HIDE-------------------------------------------
+            var element = document.getElementById("vent-icons-red-admin");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            var element = document.getElementById("vent-icons-red-sales-alt");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            var element = document.getElementById("vent-icons-blue-whatsapp");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            var element = document.getElementById("vent-icons-blue-text-alt");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+
+            //SHOW-------------------------------------------
+            var element = document.getElementById("vent-icons-red-fulfillment");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            var element = document.getElementById("vent-icons-red-admin-alt");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            var element = document.getElementById("vent-icons-blue-whatsapp-alt");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            var element = document.getElementById("vent-icons-blue-email");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            Ticker++;
+        } else if (Ticker == 4) {
+
+            //HIDE-------------------------------------------
+            var element = document.getElementById("vent-icons-red-fulfillment");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            var element = document.getElementById("vent-icons-red-admin-alt");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            var element = document.getElementById("vent-icons-blue-whatsapp-alt");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            var element = document.getElementById("vent-icons-blue-email");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            //SHOW-------------------------------------------
+            var element = document.getElementById("vent-icons-red-accounts-alt");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            var element = document.getElementById("vent-icons-blue-email-alt");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            var element = document.getElementById("vent-icons-blue-internet-alt");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            Ticker++;
+        } else {
+
+            //SHOW-------------------------------------------
+            var element = document.getElementById("vent-icons-red-accounts-alt");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            var element = document.getElementById("vent-icons-blue-email-alt");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            var element = document.getElementById("vent-icons-blue-internet-alt");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            //HIDE-------------------------------------------
+            var element = document.getElementById("vent-icons-blue-esig");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            var element = document.getElementById("vent-icons-blue-internet");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            var element = document.getElementById("vent-icons-red-payments");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            var element = document.getElementById("vent-icons-red-accounts");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            Ticker = 0;
+        }
+        //alert(Ticker);
+
+        if (video.currentTime < 47) {
+            startCountdown(1);
+            var PlayTimeInSeconds = 2.3;
+            //PlayTimeInSeconds = 14;
+            playToTime(PlayTimeInSeconds);
+
+            var element = document.getElementById("playForward");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            setTimeout(() => {
+                var element = document.getElementById("playForward");
+                element.classList.toggle("overlayDiv");
+                element.classList.toggle(".overlayDivHidden");
+
+            }, "2300");
+
+
+        } else {
+            video.currentTime = 36;
+        }
+
+    }
+
+    //--------------------------------------------------------------------------------------------------------------------------------------------------------
+    function CheckIfPentHotSpotsAreVisibleWhenNavigatingAwayFromVentruvianMan() {
+
+        var isVisible = isElementVisible("vent-icons-blue-esig");
+        //alert(isVisible);
+        if (isVisible == true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("vent-icons-blue-esig");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+        //-----------------------
+        var isVisible = isElementVisible("vent-icons-blue-internet");
+        //alert(isVisible);
+        if (isVisible == true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("vent-icons-blue-internet");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+        //-----------------------
+        var isVisible = isElementVisible("vent-icons-red-payments");
+        //alert(isVisible);
+        if (isVisible == true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("payments");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+        //-----------------------
+        var isVisible = isElementVisible("vent-icons-red-accounts");
+        //alert(isVisible);
+        if (isVisible == true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("vent-icons-red-accounts");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+        //-----------------------
+        var isVisible = isElementVisible("vent-icons-red-crm");
+        //alert(isVisible);
+        if (isVisible == true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("vent-icons-red-crm");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+        //-----------------------
+        var isVisible = isElementVisible("vent-icons-red-payments-alt");
+        //alert(isVisible);
+        if (isVisible == true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("vent-icons-red-payments-alt");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+        //-----------------------
+        var isVisible = isElementVisible("vent-icons-blue-esig-alt");
+        //alert(isVisible);
+        if (isVisible == true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("vent-icons-blue-esig-alt");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+        //-----------------------
+        var isVisible = isElementVisible("vent-icons-blue-voipicon");
+        //alert(isVisible);
+        if (isVisible == true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("vent-icons-blue-voipicon");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+        //-----------------------
+        var isVisible = isElementVisible("vent-icons-red-sales");
+        //alert(isVisible);
+        if (isVisible == true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("vent-icons-red-sales");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+        //-----------------------
+        var isVisible = isElementVisible("vent-icons-red-crm-alt");
+        //alert(isVisible);
+        if (isVisible == true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("vent-icons-red-crm-alt");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+        //-----------------------
+        var isVisible = isElementVisible("vent-icons-blue-voipicon-alt");
+        //alert(isVisible);
+        if (isVisible == true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("vent-icons-blue-voipicon-alt");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+        //-----------------------
+        var isVisible = isElementVisible("vent-icons-blue-text");
+        //alert(isVisible);
+        if (isVisible == true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("vent-icons-blue-text");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+        //-----------------------
+        var isVisible = isElementVisible("vent-icons-red-admin");
+        //alert(isVisible);
+        if (isVisible == true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("vent-icons-red-admin");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+        //-----------------------
+        var isVisible = isElementVisible("vent-icons-red-sales-alt");
+        //alert(isVisible);
+        if (isVisible == true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("vent-icons-red-sales-alt");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+        //-----------------------
+        var isVisible = isElementVisible("vent-icons-blue-whatsapp");
+        //alert(isVisible);
+        if (isVisible == true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("vent-icons-blue-whatsapp");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+        //-----------------------
+        var isVisible = isElementVisible("vent-icons-blue-text-alt");
+        //alert(isVisible);
+        if (isVisible == true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("vent-icons-blue-text-alt");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+        //-----------------------
+        var isVisible = isElementVisible("vent-icons-red-fulfillment");
+        //alert(isVisible);
+        if (isVisible == true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("vent-icons-red-fulfillment");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+        //-----------------------
+        var isVisible = isElementVisible("vent-icons-red-admin-alt");
+        //alert(isVisible);
+        if (isVisible == true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("vent-icons-red-admin-alt");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+        //-----------------------
+        var isVisible = isElementVisible("vent-icons-blue-whatsapp-alt");
+        //alert(isVisible);
+        if (isVisible == true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("vent-icons-blue-whatsapp-alt");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+        //-----------------------
+        var isVisible = isElementVisible("vent-icons-blue-email");
+        //alert(isVisible);
+        if (isVisible == true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("vent-icons-blue-email");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+        //-----------------------
+        var isVisible = isElementVisible("vent-icons-red-accounts-alt");
+        //alert(isVisible);
+        if (isVisible == true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("vent-icons-red-accounts-alt");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+        //-----------------------
+        var isVisible = isElementVisible("vent-icons-blue-email-alt");
+        //alert(isVisible);
+        if (isVisible == true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("vent-icons-blue-email-alt");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+        //-----------------------
+
+        var isVisible = isElementVisible("vent-icons-blue-internet-alt");
+        //alert(isVisible);
+        if (isVisible == true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("vent-icons-blue-internet-alt");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+        //-----------------------
+
+    }
+
+    function CheckIfPentHotSpotsAreVisibleWhenNavigatingAwayFromSphere() {
+
+        var isVisible = isElementVisible("SpherefullScreenDiv1");
+        //alert(isVisible);
+        if (isVisible == true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("SpherefullScreenDiv1");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+        var isVisible = isElementVisible("SpherefullScreenDiv2");
+        //alert(isVisible);
+        if (isVisible == true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("SpherefullScreenDiv2");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+        var isVisible = isElementVisible("SpherefullScreenDiv3");
+        //alert(isVisible);
+        if (isVisible == true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("SpherefullScreenDiv3");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+        var isVisible = isElementVisible("SpherefullScreenDiv4");
+        //alert(isVisible);
+        if (isVisible == true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("SpherefullScreenDiv4");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+
+        //--------------------------------------------------------
+
+        var isVisible = isElementVisible("SpherecloseButton1");
+        //alert(isVisible);
+        if (isVisible == true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("SpherecloseButton1");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+        var isVisible = isElementVisible("SpherecloseButton2");
+        //alert(isVisible);
+        if (isVisible == true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("SpherecloseButton2");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+        var isVisible = isElementVisible("SpherecloseButton3");
+        //alert(isVisible);
+        if (isVisible == true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("SpherecloseButton3");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+        var isVisible = isElementVisible("SpherecloseButton4");
+        //alert(isVisible);
+        if (isVisible == true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("SpherecloseButton4");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+
+
+        //---------------------------------------------------------------
+        var isVisible = isElementVisible("SphereInfoHotspot1");
+        if (isVisible == true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("SphereInfoHotspot1");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+        var isVisible = isElementVisible("SphereInfoHotspot2");
+        if (isVisible == true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("SphereInfoHotspot2");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+        var isVisible = isElementVisible("SphereInfoHotspot3");
+        if (isVisible == true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("SphereInfoHotspot3");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+        var isVisible = isElementVisible("SphereInfoHotspot4");
+        if (isVisible == true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("SphereInfoHotspot4");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+
+
+    }
+
+    //-------------------------------------------------------------------------------------------------------------------------------------------------
+    function CheckIfPentHotSpotsAreVisibleWhenNavigatingAwayFromPents() {
+
+        var isVisible = isElementVisible("PentButton1");
+        //alert(isVisible);
+        if (isVisible == true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("PentButton1");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+        var isVisible = isElementVisible("PentButton2");
+        //alert(isVisible);
+        if (isVisible == true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("PentButton2");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+        var isVisible = isElementVisible("PentButton3");
+        //alert(isVisible);
+        if (isVisible == true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("PentButton3");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+        var isVisible = isElementVisible("PentButton4");
+        //alert(isVisible);
+        if (isVisible == true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("PentButton4");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+        var isVisible = isElementVisible("PentButton5");
+        //alert(isVisible);
+        if (isVisible == true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("PentButton5");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+        var isVisible = isElementVisible("PentInfoHospot1");
+        //alert(isVisible);
+        if (isVisible == true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("PentInfoHospot1");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+        var isVisible = isElementVisible("PentInfoHospot2");
+        //alert(isVisible);
+        if (isVisible == true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("PentInfoHospot2");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+        var isVisible = isElementVisible("PentInfoHospot3");
+        //alert(isVisible);
+        if (isVisible == true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("PentInfoHospot3");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+        var isVisible = isElementVisible("PentInfoHospot4");
+        //alert(isVisible);
+        if (isVisible == true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("PentInfoHospot4");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+        var isVisible = isElementVisible("PentInfoHospot5");
+        //alert(isVisible);
+        if (isVisible == true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("PentInfoHospot5");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+
+
+    }
+
+    function isElementVisible(elementId) {
+        var element = document.getElementById(elementId);
+
+        if (element.classList.contains("overlayDiv")) {
+            return true; // The element is visible
+        } else {
+            return false; // The element is not visible (or it has the overlayDivHidden class)
+        }
+    }
+
+    //CUSTOM CURSOR GRAPHIC 1 ACTIVE
+    function CustomCusrorActive() {
+
+        // Change the cursor for the whole document
+        document.body.style.cursor = "url('media/arrow.png'), auto";
+    }
+
+    //CUSTOM CURSOR GRAPHIC 2 - LOADS WHEN PLAYING
+    function disableCursor() {
+
+        // Change the cursor for the whole document
+        document.body.style.cursor = "url('media/NoEntry.png'), auto";
+    }
+
+    //FUNCTION SET THE BUTTON POSITIONS AND SIZES ON LOAD
+    function setButtonPositionsAndSizes() {
+        var videoRect = video.getBoundingClientRect();
+
+        //CREATE ALL BUTTON POSITIONS AS PERCENTAGES
+        var buttons = [
+            {id: 'StartClick', x: 35, y: 20, width: 30, height: 50},
+            {id: 'ClickBlueSphere', x: 35, y: 20, width: 30, height: 50},
+            {id: 'backButton', x: 10, y: 80, width: 7, height: 5},
+            {id: 'skipButton', x: 35, y: 20, width: 30, height: 50},
+            {id: 'hotspotButton', x: 10, y: 60, width: 10, height: 10},
+            {id: 'Earth', x: 45, y: 33, width: 13, height: 15},
+            {id: 'Pent1', x: 34, y: 30, width: 10, height: 20},
+            {id: 'Pent2', x: 40, y: 15, width: 17, height: 14},
+            {id: 'Pent3', x: 59, y: 22, width: 10, height: 23},
+            {id: 'Pent4', x: 50, y: 50, width: 15, height: 20},
+            {id: 'Pent5', x: 33, y: 53, width: 15, height: 20},
+            {id: 'SphereL', x: 7, y: 10, width: 20, height: 70},
+            {id: 'SphereR', x: 74, y: 10, width: 20, height: 62},
+            {id: 'main1', x: 70, y: 75, width: 6, height: 10},
+            {id: 'main2', x: 77, y: 75, width: 6, height: 10},
+            {id: 'main3', x: 85, y: 75, width: 6, height: 10},
+            {id: 'main4', x: 92, y: 75, width: 6, height: 10},
+            {id: 'mainPlay1', x: 70, y: 75, width: 6, height: 10},
+            {id: 'mainPlay2', x: 77, y: 75, width: 6, height: 10},
+            {id: 'mainPlay3', x: 85, y: 75, width: 6, height: 10},
+            {id: 'mainPlay4', x: 92, y: 75, width: 6, height: 10},
+            {id: 'PentButton1', x: 34, y: 30, width: 10, height: 20},
+            {id: 'PentButton2', x: 40, y: 15, width: 17, height: 14},
+            {id: 'PentButton3', x: 59, y: 22, width: 10, height: 23},
+            {id: 'PentButton4', x: 50, y: 50, width: 15, height: 20},
+            {id: 'PentButton5', x: 33, y: 53, width: 15, height: 20},
+            {id: 'PentInfoHospot1', x: 35, y: 20, width: 30, height: 50},
+            {id: 'PentInfoHospot2', x: 35, y: 20, width: 30, height: 50},
+            {id: 'PentInfoHospot3', x: 35, y: 20, width: 30, height: 50},
+            {id: 'PentInfoHospot4', x: 35, y: 20, width: 30, height: 50},
+            {id: 'PentInfoHospot5', x: 35, y: 20, width: 30, height: 50},
+            {id: 'SphereInfoHotspot1', x: 35, y: 20, width: 30, height: 50},
+            {id: 'SphereInfoHotspot2', x: 35, y: 20, width: 30, height: 50},
+            {id: 'SphereInfoHotspot3', x: 35, y: 20, width: 30, height: 50},
+            {id: 'SphereInfoHotspot4', x: 35, y: 20, width: 30, height: 50},
+            {id: 'playForward', x: 60, y: 74, width: 10, height: 10},
+            {id: 'vent-icons-red-payments', x: 52, y: 10, width: 20, height: 18},
+            {id: 'vent-icons-red-accounts', x: 80, y: 10, width: 10, height: 18},
+            {id: 'vent-icons-blue-internet', x: 50, y: 43, width: 18, height: 18},
+            {id: 'vent-icons-blue-esig', x: 76, y: 48, width: 18, height: 18},
+            {id: 'vent-icons-red-crm', x: 52, y: 10, width: 20, height: 18},
+            {id: 'vent-icons-red-payments-alt', x: 80, y: 10, width: 10, height: 18},
+            {id: 'vent-icons-blue-esig-alt', x: 50, y: 43, width: 18, height: 18},
+            {id: 'vent-icons-blue-voipicon', x: 76, y: 48, width: 18, height: 18},
+            {id: 'vent-icons-red-sales', x: 52, y: 10, width: 20, height: 18},
+            {id: 'vent-icons-red-crm-alt', x: 80, y: 10, width: 10, height: 18},
+            {id: 'vent-icons-blue-voipicon-alt', x: 50, y: 43, width: 18, height: 18},
+            {id: 'vent-icons-blue-text', x: 76, y: 48, width: 18, height: 18},
+            {id: 'vent-icons-red-admin', x: 52, y: 10, width: 20, height: 18},
+            {id: 'vent-icons-red-sales-alt', x: 80, y: 10, width: 10, height: 18},
+            {id: 'vent-icons-blue-whatsapp', x: 76, y: 48, width: 18, height: 18},
+            {id: 'vent-icons-blue-text-alt', x: 50, y: 43, width: 18, height: 18},
+            {id: 'vent-icons-red-fulfillment', x: 52, y: 10, width: 20, height: 18},
+            {id: 'vent-icons-red-admin-alt', x: 80, y: 10, width: 10, height: 18},
+            {id: 'vent-icons-blue-whatsapp-alt', x: 50, y: 43, width: 18, height: 18},
+            {id: 'vent-icons-blue-email', x: 76, y: 48, width: 18, height: 18},
+            {id: 'vent-icons-red-accounts-alt', x: 52, y: 10, width: 20, height: 18},
+            {id: 'vent-icons-blue-email-alt', x: 48, y: 48, width: 20, height: 18},
+            {id: 'vent-icons-blue-internet-alt', x: 68, y: 48, width: 20, height: 18}
+        ];
+
+        //RESIZE BUTTONS WHEN SCREEN CHANGES SIZE
+        buttons.forEach(function (button) {
+            var elem = document.getElementById(button.id);
+            elem.style.width = (videoRect.width * button.width / 100) + 'px';
+            elem.style.height = (videoRect.height * button.height / 100) + 'px';
+            elem.style.left = (videoRect.left + videoRect.width * button.x / 100) + 'px';
+            elem.style.top = (videoRect.top + videoRect.height * button.y / 100) + 'px';
+            elem.style.lineHeight = (videoRect.height * button.height / 100) + 'px';
+            elem.style.display = 'block';
+        });
+
+        // BOTTOM OVERLAY ALLWAYS COVERS LAST 15 PERCENT OF VIDEO VIEWPORT
+        var bottomOverlay = document.getElementById('bottomOverlay');
+        bottomOverlay.style.top = (videoRect.bottom - (videoRect.height * 0.15)) + 'px';
+        bottomOverlay.style.height = (videoRect.height * 0.15) + 'px';
+    }
+
+    //FUNCTION ALL BUTTONS ARE SET TO CLICKABLE WHEN LOADED
+    function setButtonState(isEnabled) {
+        // set default state of hitboxes to unclicked
+
+        document.getElementById('StartClick').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('ClickBlueSphere').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('backButton').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('skipButton').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('hotspotButton').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('Earth').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('Pent1').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('Pent2').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('Pent3').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('Pent4').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('Pent5').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('SphereL').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('SphereR').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('main1').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('main2').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('main3').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('main4').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('mainPlay1').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('mainPlay2').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('mainPlay3').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('mainPlay4').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('PentButton1').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('PentButton2').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('PentButton3').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('PentButton4').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('PentButton5').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('PentInfoHospot1').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('PentInfoHospot2').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('PentInfoHospot3').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('PentInfoHospot4').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('PentInfoHospot5').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('SphereInfoHotspot1').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('SphereInfoHotspot2').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('SphereInfoHotspot3').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('SphereInfoHotspot4').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('playForward').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('vent-icons-red-payments').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('vent-icons-red-accounts').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('vent-icons-blue-internet').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('vent-icons-blue-esig').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('vent-icons-red-crm').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('vent-icons-red-payments-alt').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('vent-icons-blue-esig-alt').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('vent-icons-blue-voipicon').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('vent-icons-red-sales').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('vent-icons-red-crm-alt').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('vent-icons-blue-voipicon-alt').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('vent-icons-blue-text').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('vent-icons-red-admin').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('vent-icons-red-sales-alt').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('vent-icons-blue-whatsapp').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('vent-icons-blue-text-alt').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('vent-icons-red-fulfillment').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('vent-icons-red-admin-alt').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('vent-icons-blue-whatsapp-alt').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('vent-icons-blue-email').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('vent-icons-red-accounts-alt').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('vent-icons-blue-email-alt').style.pointerEvents = isEnabled ? 'auto' : 'none';
+        document.getElementById('vent-icons-blue-internet-alt').style.pointerEvents = isEnabled ? 'auto' : 'none';
+    }
+
+    //PLAY TO TIME FUNCTION
+    function playToTime(time, buttonState) {
+        if (buttonState == null) {
+            setButtonState(false);
+
+
+        }
+
+        //PLAY THE VIDEO
+        video.play();
+        //STOP VIDEO AFTER X SECONDS passed in function as 1,2,3,4,5,6 etc... (Primary Whole numbers) We times it by 1000 to get the setTimeout function working correctly
+        time2 = time * 1000;
+        //AFTER X AMOUNT OF SECONDS PAUSE THE VIDEO
+        setTimeout(function () {
+            video.pause();
+            if (buttonState == null) {
+                setButtonState(true);
+            }
+        }, time2);
+    }
+
+    //Close Divs functions
+    //Red Icons
+
+    //Red Icons
+    function closeAccountsDisplayGroup() {
+        document.getElementById('vent-icons-red-accounts-content-div').style.display = 'none';
+        document.getElementById('vent-icons-red-accounts-close-button').style.display = 'none';
+    }
+    function closeAdminDisplayGroup() {
+        document.getElementById('vent-icons-red-admin-content-div').style.display = 'none';
+        document.getElementById('vent-icons-red-admin-close-button').style.display = 'none';
+    }
+    function closePaymentsDisplayGroup() {
+        document.getElementById('vent-red-icons-payments-content-div').style.display = 'none';
+        document.getElementById('vent-icons-red-payments-close-button').style.display = 'none';
+    }
+    function closeCRMDisplayGroup() {
+        document.getElementById('vent-icons-red-crm-content-div').style.display = 'none';
+        document.getElementById('vent-icons-red-crm-close-button').style.display = 'none';
+    }
+    function closeSalesDisplayGroup() {
+        document.getElementById('vent-icons-red-sales-content-div').style.display = 'none';
+        document.getElementById('vent-icons-red-sales-close-button').style.display = 'none';
+    }
+    function closeFufillmentDisplayGroup() {
+        document.getElementById('vent-icons-red-fulfillment-content-div').style.display = 'none';
+        document.getElementById('vent-icons-red-fulfillment-close-button').style.display = 'none';
+    }
+
+    //Blue Icons
+    function closeInternetDisplayGroup() {
+        document.getElementById('vent-icons-blue-internet-close-button').style.display = 'none';
+        document.getElementById('vent-icons-blue-internet-content-div').style.display = 'none';
+    }
+    function closeVoipDisplayGroup() {
+        document.getElementById('vent-icons-blue-voip-content-div').style.display = 'none';
+        document.getElementById('vent-icons-blue-voip-close-button').style.display = 'none';
+    }
+    function closeEsignatureDisplayGroup() {
+        document.getElementById('vent-icons-blue-esig-content-div').style.display = 'none';
+        document.getElementById('vent-icons-blue-esig-content-close-button').style.display = 'none';
+    }
+    function closeTextDisplayGroup() {
+        document.getElementById('vent-icons-blue-text-content-div').style.display = 'none';
+        document.getElementById('vent-icons-blue-text-close-button').style.display = 'none';
+    }
+    function closeWhatsappDisplayGroup() {
+        document.getElementById('vent-icons-blue-whatsapp-content-div').style.display = 'none';
+        document.getElementById('vent-icons-blue-whatsapp-close-button').style.display = 'none';
+    }
+    function closeEmailDisplayGroup() {
+        document.getElementById('vent-icons-blue-email-content-div').style.display = 'none';
+        document.getElementById('vent-icons-blue-email-close-button').style.display = 'none';
+    }
+
+    //CLOSE THE FULL SCREEN DIV SPHERE FUNCTION
+    function SpherecloseFullScreenDiv1() {
+        var SpherefullScreenDiv1 = document.getElementById('SpherefullScreenDiv1');
+        SpherefullScreenDiv1.style.display = 'none';//SphereInfoHotspot1
+
+        startCountdown(8);
+
+        //video.currentTime = 145;
+        var PlayTimeInSeconds = 10;
+        playToTime(PlayTimeInSeconds);
+
+        var SphereClose1 = document.getElementById('SpherecloseButton1');
+        SphereClose1.style.display = 'none';
+
+        var SphereClose4 = document.getElementById('SphereInfoHotspot1');
+        SphereClose4.style.display = 'none';
+    }
+    function SpherecloseFullScreenDiv2() {
+        var SpherefullScreenDiv2 = document.getElementById('SpherefullScreenDiv2');
+        SpherefullScreenDiv2.style.display = 'none';//SphereInfoHotspot1
+
+        var SphereClose2 = document.getElementById('SpherecloseButton2');
+        SphereClose2.style.display = 'none';
+
+        var SphereClose4 = document.getElementById('SphereInfoHotspot2');
+        SphereClose4.style.display = 'none';
+
+        startCountdown(9);
+
+        //video.currentTime = 155;
+        var PlayTimeInSeconds = 10;
+        playToTime(PlayTimeInSeconds);
+
+
+    }
+    function SpherecloseFullScreenDiv3() {
+        var SpherefullScreenDiv3 = document.getElementById('SpherefullScreenDiv3');
+        SpherefullScreenDiv3.style.display = 'none';
+
+        var SphereClose3 = document.getElementById('SpherecloseButton3');
+        SphereClose3.style.display = 'none';
+
+        var SphereClose4 = document.getElementById('SphereInfoHotspot3');
+        SphereClose4.style.display = 'none';
+
+        startCountdown(10);
+
+        //video.currentTime = 165;
+        var PlayTimeInSeconds = 10;
+        playToTime(PlayTimeInSeconds);
+
+
+    }
+    function SpherecloseFullScreenDiv4() {
+        var SpherefullScreenDiv4 = document.getElementById('SpherefullScreenDiv4');
+        SpherefullScreenDiv4.style.display = 'none';
+
+        var SphereClose4 = document.getElementById('SpherecloseButton4');
+        SphereClose4.style.display = 'none';
+
+        var SphereClose4 = document.getElementById('SphereInfoHotspot4');
+        SphereClose4.style.display = 'none';
+
+        startCountdown(15);
+
+        //video.currentTime = 170;
+        var PlayTimeInSeconds = 15;
+        playToTime(PlayTimeInSeconds);
+
+
+    }
+
+    //CLOSE THE FULL SCREEN DIV PENT FUNCTION
+
+    function closeFullScreenDiv1() {
+        var fullScreenDiv1 = document.getElementById('fullScreenDiv1');
+        fullScreenDiv1.style.display = 'none';
+        video.currentTime = 67;
+
+        HideShowPentButtons();
+
+        var Close1 = document.getElementById('closeButton1');
+        Close1.style.display = 'none';
+    }
+    function closeFullScreenDiv2() {
+        var fullScreenDiv2 = document.getElementById('fullScreenDiv2');
+        fullScreenDiv2.style.display = 'none';
+        video.currentTime = 67;
+
+
+        HideShowPentButtons();
+
+        var Close2 = document.getElementById('closeButton2');
+        Close2.style.display = 'none';
+    }
+    function closeFullScreenDiv3() {
+        var fullScreenDiv3 = document.getElementById('fullScreenDiv3');
+        fullScreenDiv3.style.display = 'none';
+        video.currentTime = 67;
+
+
+        HideShowPentButtons();
+
+        var Close3 = document.getElementById('closeButton3');
+        Close3.style.display = 'none';
+    }
+    function closeFullScreenDiv4() {
+        var fullScreenDiv4 = document.getElementById('fullScreenDiv4');
+        fullScreenDiv4.style.display = 'none';
+        video.currentTime = 67;
+
+
+        HideShowPentButtons();
+
+        var Close4 = document.getElementById('closeButton4');
+        Close4.style.display = 'none';
+    }
+    function closeFullScreenDiv5() {
+        var fullScreenDiv5 = document.getElementById('fullScreenDiv5');
+        fullScreenDiv5.style.display = 'none';
+        video.currentTime = 67;
+
+        var Close5 = document.getElementById('closeButton5');
+        Close5.style.display = 'none';
+
+        HideShowPentButtons();
+
+    }
+
+    //***************************************************************************************************************************************************************//
+    //                                                                     EVENT LISTENERS                                                                           //
+    //***************************************************************************************************************************************************************//
+
+    //WHEN THE START HITBOX IS CLICKED, WE HIDE IT AND SHOW THE BLUE SPHERE HITBOX AND MOVE FORWARD 5 SECONDS IN THE VIDEO
+    document.getElementById('StartClick').addEventListener('click', function () {
+
+        startCountdown(3);
+
+        //PLAY VIDEO TO NEXT SEQUENCE
+        var PlayTimeInSeconds = video.currentTime + 5;
+        playToTime(Math.min(PlayTimeInSeconds, video.duration));
+
+
+        //HIDE START CLICK DIV
+        var element = document.getElementById("StartClick");
+        element.classList.toggle("overlayDiv");
+        element.classList.toggle(".overlayDivHidden"); // I DON'T KNOW WHY BUT IF YOU DON'T INCLUDE THE DOT, THE SCRIPT BREAKS
+
+
+        //SHOW BLUE SPHERE DIV
+        var element = document.getElementById("ClickBlueSphere");
+        element.classList.toggle(".overlayDivHidden"); //THIS DOES NOT HAVE THE DOT
+        element.classList.toggle("overlayDiv");
+
+        //Auto fire event
+        setTimeout(() => {
+            var event = new Event('click', { });
+            document.getElementById('ClickBlueSphere').dispatchEvent(event);
+        }, "5500");
+    });
+    //****************************************************************************************************************************************************************//
+    //WHEN THE BLUE SPHERE HITBOX IS CLICKED WE SHOW THE HITBOXES FOR THE 8 NAVIGATION CONTROLS AND HIDE THE BLUE SPHERE HITBOX AND MOVE FORWARD 5 SECONDS IN THE VIDEO
+    //****************************************************************************************************************************************************************//
+    document.getElementById('ClickBlueSphere').addEventListener('click', function () {
+
+        //BELLOW THE HITBOXES SET TO DISPLAYING FOR THE STARTING NAVIGATION AREA
+        startCountdown(6);
+
+        var PlayTimeInSeconds = video.currentTime + 2;
+        playToTime(Math.min(PlayTimeInSeconds, video.duration));
+
+
+        //HIDES BLUE SPHERE DIV-----------------------------------------------------------------------------------------------------------------------------------------
+        var element = document.getElementById("ClickBlueSphere");
+        element.classList.toggle("overlayDiv");
+        element.classList.toggle(".overlayDivHidden");
+
+        //SHOW EARTH DIV------------------------------------------------------------------------------------------------------------------------------------------------
+        var element = document.getElementById("Earth");
+        element.classList.toggle("overlayDiv");
+
+
+        //SHOW 5 PENTAGON MESHES----------------------------------------------------------------------------------------------------------------------------------------
+        var element = document.getElementById("Pent1");
+        element.classList.toggle("overlayDiv");
+
+        var element = document.getElementById("Pent2");
+        element.classList.toggle("overlayDiv");
+
+        var element = document.getElementById("Pent3");
+        element.classList.toggle("overlayDiv");
+
+        var element = document.getElementById("Pent4");
+        element.classList.toggle("overlayDiv");
+
+        var element = document.getElementById("Pent5");
+        element.classList.toggle("overlayDiv");
+
+        //SHOE LEFT & RIGHT SPHERES------------------------------------------------------------------------------------------------------------------------------------
+        var element = document.getElementById("SphereL");
+        element.classList.toggle("overlayDiv");
+
+        var element = document.getElementById("SphereR");
+        element.classList.toggle("overlayDiv");
+
+        HideShowMainMenuBottomRight();
+
+    });
+    //*******************************************************************************************************************************************************************//
+    //				                                           EVENT LISTENERS FOR FIRST NAVIGATION AREA (HITBOXES)                                                      //
+    //*******************************************************************************************************************************************************************//
+    function HideShowMainMenuBottomRight() {
+
+
+        var element = document.getElementById("main1");
+        element.classList.toggle("overlayDiv");
+        element.classList.toggle(".overlayDivHidden");
+
+        var element = document.getElementById("main2");
+        element.classList.toggle("overlayDiv");
+        element.classList.toggle(".overlayDivHidden");
+
+        var element = document.getElementById("main3");
+        element.classList.toggle("overlayDiv");
+        element.classList.toggle(".overlayDivHidden");
+
+        var element = document.getElementById("main4");
+        element.classList.toggle("overlayDiv");
+        element.classList.toggle(".overlayDivHidden");
+
+
+    }
+
+    function hideShowStarterMenuHotBoxes() {
+
+
+        //HIDES EARTH HITBOX
+        var element = document.getElementById("Earth");
+        element.classList.toggle("overlayDiv");
+        element.classList.toggle(".overlayDivHidden");
+
+        //HIDES Pent1 HITBOX
+        var element = document.getElementById("Pent1");
+        element.classList.toggle("overlayDiv");
+        element.classList.toggle(".overlayDivHidden");
+
+        //HIDES Pent2 HITBOX
+        var element = document.getElementById("Pent2");
+        element.classList.toggle("overlayDiv");
+        element.classList.toggle(".overlayDivHidden");
+
+        //HIDES Pent3 HITBOX
+        var element = document.getElementById("Pent3");
+        element.classList.toggle("overlayDiv");
+        element.classList.toggle(".overlayDivHidden");
+
+        //HIDES Pent4 HITBOX
+        var element = document.getElementById("Pent4");
+        element.classList.toggle("overlayDiv");
+        element.classList.toggle(".overlayDivHidden");
+
+        //HIDES Pent5 HITBOX
+        var element = document.getElementById("Pent5");
+        element.classList.toggle("overlayDiv");
+        element.classList.toggle(".overlayDivHidden");
+
+        //HIDES SphereL HITBOX
+        var element = document.getElementById("SphereL");
+        element.classList.toggle("overlayDiv");
+        element.classList.toggle(".overlayDivHidden");
+
+
+        //HIDES SPHERER HITBOX
+        var element = document.getElementById("SphereR");
+        element.classList.toggle("overlayDiv");
+        element.classList.toggle(".overlayDivHidden");
+
+
+    }
+
+    function HideShowPentButtons() {
+
+
+        //HIDE PENT BUTTON
+        var element = document.getElementById("PentButton1");
+        element.classList.toggle("overlayDiv");
+        element.classList.toggle(".overlayDivHidden"); // I DON'T KNOW WHY BUT IF YOU DON'T INCLUDE THE DOT, THE SCRIPT BREAKS
+
+        //HIDE PENT BUTTON
+        var element = document.getElementById("PentButton2");
+        element.classList.toggle("overlayDiv");
+        element.classList.toggle(".overlayDivHidden"); // I DON'T KNOW WHY BUT IF YOU DON'T INCLUDE THE DOT, THE SCRIPT BREAKS
+
+        //HIDE PENT BUTTON
+        var element = document.getElementById("PentButton3");
+        element.classList.toggle("overlayDiv");
+        element.classList.toggle(".overlayDivHidden"); // I DON'T KNOW WHY BUT IF YOU DON'T INCLUDE THE DOT, THE SCRIPT BREAKS
+
+        //HIDE PENT BUTTON
+        var element = document.getElementById("PentButton4");
+        element.classList.toggle("overlayDiv");
+        element.classList.toggle(".overlayDivHidden"); // I DON'T KNOW WHY BUT IF YOU DON'T INCLUDE THE DOT, THE SCRIPT BREAKS
+
+        //HIDE PENT BUTTON
+        var element = document.getElementById("PentButton5");
+        element.classList.toggle("overlayDiv");
+        element.classList.toggle(".overlayDivHidden"); // I DON'T KNOW WHY BUT IF YOU DON'T INCLUDE THE DOT, THE SCRIPT BREAKS
+
+
+    }
+
+    //EARTH EVENT LISTENER-----------------------------------------------------------------------------------------------------------------------------------------------
+    //If the earth is clicked and we are on the main menu, the animation must play to the ventruvian man (Eart) - Otherwise, it must just skip (Instant Jump)
+    document.getElementById('Earth').addEventListener('click', function () {
+        //Play video for X seconds
+
+
+        hideShowStarterMenuHotBoxes();
+        HideShowMainMenuBottomRight();
+
+
+        //-------------
+        // Execute the function to hide all block elements
+
+
+        CheckIfPentHotSpotsAreVisibleWhenNavigatingAwayFromPents();
+        //CheckIfPentHotSpotsAreVisibleWhenNavigatingAwayFromVentruvianMan();
+        CheckIfPentHotSpotsAreVisibleWhenNavigatingAwayFromSphere();
+
+
+        ShouldThePlayForwardButtonBeVisible = 1;
+
+        //After skipping to the ventruvian man (earth), run the rotator text blue and red and make it do one rotation
+
+        startCountdown(21);
+        video.currentTime = 15;
+        var PlayTimeInSeconds = 21;
+        playToTime(PlayTimeInSeconds);
+        setTimeout(() => {
+            var element = document.getElementById("playForward");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            var element = document.getElementById("vent-icons-blue-esig");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            var element = document.getElementById("vent-icons-blue-internet");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            var element = document.getElementById("vent-icons-red-payments");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            var element = document.getElementById("vent-icons-red-accounts");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+        }, "21000");
+
+    });
+
+    //PENTAGONS EVENT LISTNERS--------------------------------------------------------------------------------------------------------------------------------------------
+    document.getElementById('Pent1').addEventListener('click', function () {
+        startCountdown(5);
+        //Go to frame 61 & Then play for 5 seconds
+        video.currentTime = 61;
+        var PlayTimeInSeconds = 5;
+        playToTime(PlayTimeInSeconds);
+
+        hideShowStarterMenuHotBoxes();
+        HideShowMainMenuBottomRight();
+
+
+        //AFTER X AMOUNT OF SECONDS SHOW STARTER PENT BUTTON  - THERE ARE 5 IN ROTATIONN BUT ONLY ONE IS DISPLAYED INITIALLY
+        setTimeout(function () {
+            HideShowPentButtons();
+
+
+        }, 5000);
+
+
+    });
+    document.getElementById('Pent2').addEventListener('click', function () {
+        startCountdown(5);
+        //Go to frame 61 & Then play for 5 seconds
+        video.currentTime = 61;
+        var PlayTimeInSeconds = 5;
+        playToTime(PlayTimeInSeconds);
+
+        hideShowStarterMenuHotBoxes();
+        HideShowMainMenuBottomRight();
+
+
+        //AFTER X AMOUNT OF SECONDS SHOW STARTER PENT BUTTON  - THERE ARE 5 IN ROTATIONN BUT ONLY ONE IS DISPLAYED INITIALLY
+        setTimeout(function () {
+            HideShowPentButtons();
+
+
+        }, 5000);
+
+
+    });
+    document.getElementById('Pent3').addEventListener('click', function () {
+        startCountdown(5);
+        //Go to frame 61 & Then play for 5 seconds
+        video.currentTime = 61;
+        var PlayTimeInSeconds = 5;
+        playToTime(PlayTimeInSeconds);
+
+        hideShowStarterMenuHotBoxes();
+        HideShowMainMenuBottomRight();
+
+
+        //AFTER X AMOUNT OF SECONDS SHOW STARTER PENT BUTTON  - THERE ARE 5 IN ROTATIONN BUT ONLY ONE IS DISPLAYED INITIALLY
+        setTimeout(function () {
+            HideShowPentButtons();
+
+
+        }, 5000);
+
+
+    });
+    document.getElementById('Pent4').addEventListener('click', function () {
+        startCountdown(5);
+        //Go to frame 61 & Then play for 5 seconds
+        video.currentTime = 61;
+        var PlayTimeInSeconds = 5;
+        playToTime(PlayTimeInSeconds);
+
+        hideShowStarterMenuHotBoxes();
+        HideShowMainMenuBottomRight();
+
+
+        //AFTER X AMOUNT OF SECONDS SHOW STARTER PENT BUTTON  - THERE ARE 5 IN ROTATIONN BUT ONLY ONE IS DISPLAYED INITIALLY
+        setTimeout(function () {
+            HideShowPentButtons();
+
+
+        }, 5000);
+
+
+    });
+    document.getElementById('Pent5').addEventListener('click', function () {
+
+        startCountdown(5);
+        //Go to frame 61 & Then play for 5 seconds
+        video.currentTime = 61;
+        var PlayTimeInSeconds = 5;
+        playToTime(PlayTimeInSeconds);
+
+        hideShowStarterMenuHotBoxes();
+        HideShowMainMenuBottomRight();
+
+
+        //AFTER X AMOUNT OF SECONDS SHOW STARTER PENT BUTTON  - THERE ARE 5 IN ROTATIONN BUT ONLY ONE IS DISPLAYED INITIALLY
+        setTimeout(function () {
+            HideShowPentButtons();
+
+
+        }, 5000);
+
+
+    });
+
+    //PENTAGON BUTTONS HITBOXES SCENE PENTAGON----------------------------------------------------------------------------------------------------------------------------------------------------
+    document.getElementById('PentButton1').addEventListener('click', function () {
+        startCountdown(3);
+        //Play video for X seconds
+        video.currentTime = 96;
+        var PlayTimeInSeconds = 3;
+        playToTime(PlayTimeInSeconds);
+
+
+        HideShowPentButtons();
+
+
+        //AFTER X AMOUNT OF SECONDS SHOW STARTER PENT INFO BUTTON  - THERE ARE 5 IN ROTATIONN BUT ONLY ONE IS DISPLAYED INITIALLY
+        setTimeout(function () {
+            //SHOW
+            var element = document.getElementById("PentInfoHospot1");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden"); // I DON'T KNOW WHY BUT IF YOU DON'T INCLUDE THE DOT, THE SCRIPT BREAKS
+
+        }, 3000);
+
+
+    });
+    document.getElementById('PentButton2').addEventListener('click', function () {
+        startCountdown(5);
+        //Play video for X seconds
+        video.currentTime = 106;
+        var PlayTimeInSeconds = 5;
+        playToTime(PlayTimeInSeconds);
+
+
+        HideShowPentButtons();
+
+        //AFTER X AMOUNT OF SECONDS SHOW STARTER PENT INFO BUTTON  - THERE ARE 5 IN ROTATIONN BUT ONLY ONE IS DISPLAYED INITIALLY
+        setTimeout(function () {
+            //SHOW
+            var element = document.getElementById("PentInfoHospot2");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden"); // I DON'T KNOW WHY BUT IF YOU DON'T INCLUDE THE DOT, THE SCRIPT BREAKS
+
+        }, 3000);
+    });
+    document.getElementById('PentButton3').addEventListener('click', function () {
+        //Play video for X seconds
+        startCountdown(3);
+        //video.currentTime = 105;
+        var PlayTimeInSeconds = 3;
+        playToTime(PlayTimeInSeconds);
+
+
+        HideShowPentButtons();
+
+
+        //AFTER X AMOUNT OF SECONDS SHOW STARTER PENT INFO BUTTON  - THERE ARE 5 IN ROTATIONN BUT ONLY ONE IS DISPLAYED INITIALLY
+        setTimeout(function () {
+            //SHOW
+            var element = document.getElementById("PentInfoHospot3");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden"); // I DON'T KNOW WHY BUT IF YOU DON'T INCLUDE THE DOT, THE SCRIPT BREAKS
+
+        }, 3000);
+
+
+    });
+    document.getElementById('PentButton4').addEventListener('click', function () {
+        startCountdown(4);
+        //Play video for X seconds
+        video.currentTime = 76;
+        var PlayTimeInSeconds = 4;
+        playToTime(PlayTimeInSeconds);
+
+
+        HideShowPentButtons();
+
+
+        //AFTER X AMOUNT OF SECONDS SHOW STARTER PENT INFO BUTTON  - THERE ARE 5 IN ROTATIONN BUT ONLY ONE IS DISPLAYED INITIALLY
+        setTimeout(function () {
+            //SHOW
+            var element = document.getElementById("PentInfoHospot4");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden"); // I DON'T KNOW WHY BUT IF YOU DON'T INCLUDE THE DOT, THE SCRIPT BREAKS
+
+        }, 3000);
+
+
+    });
+    document.getElementById('PentButton5').addEventListener('click', function () {
+        startCountdown(5);
+        //Play video for X seconds
+        video.currentTime = 86;
+        var PlayTimeInSeconds = 4;
+        playToTime(PlayTimeInSeconds);
+
+
+        HideShowPentButtons();
+
+
+        //AFTER X AMOUNT OF SECONDS SHOW STARTER PENT INFO BUTTON  - THERE ARE 5 IN ROTATIONN BUT ONLY ONE IS DISPLAYED INITIALLY
+        setTimeout(function () {
+            //SHOW
+            var element = document.getElementById("PentInfoHospot5");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden"); // I DON'T KNOW WHY BUT IF YOU DON'T INCLUDE THE DOT, THE SCRIPT BREAKS
+
+        }, 3000);
+
+
+    });
+    //SPHERE INFO HOTSPOTS----------------------
+    document.getElementById('SphereInfoHotspot1').addEventListener('click', function () {
+        var fullScreenDiv = document.getElementById('SpherefullScreenDiv1');
+        fullScreenDiv.style.display = 'block';
+        document.getElementById('SpherecloseButton1').style.display = 'block';
+
+        //HIDE
+        var element = document.getElementById("SphereInfoHotspot1");
+        element.classList.toggle("overlayDiv");
+        element.classList.toggle(".overlayDivHidden"); // I DON'T KNOW WHY BUT IF YOU DON'T INCLUDE THE DOT, THE SCRIPT BREAKS
+
+        //SHOW
+        var element = document.getElementById("SphereInfoHotspot2");
+        element.classList.toggle("overlayDiv");
+        element.classList.toggle(".overlayDivHidden"); // I DON'T KNOW WHY BUT IF YOU DON'T INCLUDE THE DOT, THE SCRIPT BREAKS
+
+
+        document.getElementById('SpherecloseButton1').style.display = 'block';
+    });
+    //SPHERE INFO HOTSPOTS----------------------
+    document.getElementById('SphereInfoHotspot2').addEventListener('click', function () {
+        var fullScreenDiv = document.getElementById('SpherefullScreenDiv2');
+        fullScreenDiv.style.display = 'block';
+
+        //HIDE
+        var element = document.getElementById("SphereInfoHotspot2");
+        element.classList.toggle("overlayDiv");
+        element.classList.toggle(".overlayDivHidden"); // I DON'T KNOW WHY BUT IF YOU DON'T INCLUDE THE DOT, THE SCRIPT BREAKS
+
+        //SHOW
+        var element = document.getElementById("SphereInfoHotspot3");
+        element.classList.toggle("overlayDiv");
+        element.classList.toggle(".overlayDivHidden"); // I DON'T KNOW WHY BUT IF YOU DON'T INCLUDE THE DOT, THE SCRIPT BREAKS
+
+
+        document.getElementById('SpherecloseButton2').style.display = 'block';
+    });
+    //SPHERE INFO HOTSPOTS----------------------
+    document.getElementById('SphereInfoHotspot3').addEventListener('click', function () {
+        var fullScreenDiv = document.getElementById('SpherefullScreenDiv3');
+        fullScreenDiv.style.display = 'block';
+
+        //HIDE
+        var element = document.getElementById("SphereInfoHotspot3");
+        element.classList.toggle("overlayDiv");
+        element.classList.toggle(".overlayDivHidden"); // I DON'T KNOW WHY BUT IF YOU DON'T INCLUDE THE DOT, THE SCRIPT BREAKS
+
+        //SHOW
+        var element = document.getElementById("SphereInfoHotspot4");
+        element.classList.toggle("overlayDiv");
+        element.classList.toggle(".overlayDivHidden"); // I DON'T KNOW WHY BUT IF YOU DON'T INCLUDE THE DOT, THE SCRIPT BREAKS
+
+
+        var closeDiv1 = document.getElementById('SpherecloseButton3');
+        closeDiv1.style.display = 'block';
+    });
+    //SPHERE INFO HOTSPOTS----------------------
+    document.getElementById('SphereInfoHotspot4').addEventListener('click', function () {
+        var fullScreenDiv = document.getElementById('SpherefullScreenDiv4');
+        fullScreenDiv.style.display = 'block';
+
+        //HIDE
+        var element = document.getElementById("SphereInfoHotspot4");
+        element.classList.toggle("overlayDiv");
+        element.classList.toggle(".overlayDivHidden"); // I DON'T KNOW WHY BUT IF YOU DON'T INCLUDE THE DOT, THE SCRIPT BREAKS
+
+
+        var closeDiv1 = document.getElementById('SpherecloseButton4');
+        closeDiv1.style.display = 'block';
+    });
+    //-----------------------PENT INFO HOTSPOTS
+    document.getElementById('PentInfoHospot1').addEventListener('click', function () {
+        var fullScreenDiv = document.getElementById('fullScreenDiv1');
+        fullScreenDiv.style.display = 'block';
+
+        //HIDE
+        var element = document.getElementById("PentInfoHospot1");
+        element.classList.toggle("overlayDiv");
+        element.classList.toggle(".overlayDivHidden"); // I DON'T KNOW WHY BUT IF YOU DON'T INCLUDE THE DOT, THE SCRIPT BREAKS
+
+
+        var closeDiv1 = document.getElementById('closeButton1');
+        closeDiv1.style.display = 'block';
+    });
+    document.getElementById('PentInfoHospot2').addEventListener('click', function () {
+        var fullScreenDiv = document.getElementById('fullScreenDiv2');
+        fullScreenDiv.style.display = 'block';
+
+        //HIDE
+        var element = document.getElementById("PentInfoHospot2");
+        element.classList.toggle("overlayDiv");
+        element.classList.toggle(".overlayDivHidden"); // I DON'T KNOW WHY BUT IF YOU DON'T INCLUDE THE DOT, THE SCRIPT BREAKS
+
+
+        var closeDiv2 = document.getElementById('closeButton2');
+        closeDiv2.style.display = 'block';
+
+    });
+    document.getElementById('PentInfoHospot3').addEventListener('click', function () {
+        var fullScreenDiv = document.getElementById('fullScreenDiv3');
+        fullScreenDiv.style.display = 'block';
+
+        //HIDE
+        var element = document.getElementById("PentInfoHospot3");
+        element.classList.toggle("overlayDiv");
+        element.classList.toggle(".overlayDivHidden"); // I DON'T KNOW WHY BUT IF YOU DON'T INCLUDE THE DOT, THE SCRIPT BREAKS
+
+
+        var closeDiv3 = document.getElementById('closeButton3');
+        closeDiv3.style.display = 'block';
+
+    });
+    document.getElementById('PentInfoHospot4').addEventListener('click', function () {
+        var fullScreenDiv = document.getElementById('fullScreenDiv4');
+        fullScreenDiv.style.display = 'block';
+
+        //HIDE
+        var element = document.getElementById("PentInfoHospot4");
+        element.classList.toggle("overlayDiv");
+        element.classList.toggle(".overlayDivHidden"); // I DON'T KNOW WHY BUT IF YOU DON'T INCLUDE THE DOT, THE SCRIPT BREAKS
+
+
+        var closeDiv4 = document.getElementById('closeButton4');
+        closeDiv4.style.display = 'block';
+
+    });
+    document.getElementById('PentInfoHospot5').addEventListener('click', function () {
+        var fullScreenDiv = document.getElementById('fullScreenDiv5');
+        fullScreenDiv.style.display = 'block';
+
+        //HIDE
+        var element = document.getElementById("PentInfoHospot5");
+        element.classList.toggle("overlayDiv");
+        element.classList.toggle(".overlayDivHidden"); // I DON'T KNOW WHY BUT IF YOU DON'T INCLUDE THE DOT, THE SCRIPT BREAKS
+
+
+        var closeDiv5 = document.getElementById('closeButton5');
+        closeDiv5.style.display = 'block';
+
+    });
+    //SPHERE L & R EVENT LISTNERS-------------------------------------------------------------------------------------------------------------------------------------------
+
+    document.getElementById('SphereL').addEventListener('click', function () {
+
+
+        startCountdown(21);
+        video.currentTime = 118;
+        PlayTimeInSeconds = 21;
+        //Buttons can be clicked at any time because of the 1
+        playToTime(PlayTimeInSeconds);
+
+        var element = document.getElementById("SphereInfoHotspot1");
+        element.classList.toggle("overlayDiv");
+        element.classList.toggle(".overlayDivHidden");
+
+        hideShowStarterMenuHotBoxes();
+        HideShowMainMenuBottomRight();
+
+    });
+    document.getElementById('SphereR').addEventListener('click', function () {
+
+        //hideShowStarterMenuHotBoxes();
+
+        startCountdown(21);
+        video.currentTime = 118;
+        PlayTimeInSeconds = 21;
+        //Buttons can be clicked at any time because of the 1
+        playToTime(PlayTimeInSeconds);
+
+
+        var element = document.getElementById("SphereInfoHotspot1");
+        element.classList.toggle("overlayDiv");
+        element.classList.toggle(".overlayDivHidden");
+
+        hideShowStarterMenuHotBoxes();
+        HideShowMainMenuBottomRight();
+
+
+    });
+    //END EVENT LISTENERS FOR FIRST NAVIGATION AREA AND START OTHER EVENT LISTENERS-------------------------------------------------------------------------------------------------------------------------
+    document.getElementById('backButton').addEventListener('click', function () {
+        var PlayTimeInSeconds = video.currentTime - 5;
+        reverseToTime(Math.max(PlayTimeInSeconds, 0));
+    });
+
+    document.getElementById('skipButton').addEventListener('click', function () {
+        video.currentTime = 130; // Set to the desired skip time in seconds
+    });
+    //MAIN NAVIGATION EVENT LISTENERS--------------------------------------------------------------------------------------------------------------------------------------------
+    document.getElementById('main1').addEventListener('click', function () {
+
+        CheckIfPentHotSpotsAreVisibleWhenNavigatingAwayFromPents();
+        CheckIfPentHotSpotsAreVisibleWhenNavigatingAwayFromVentruvianMan();
+        CheckIfPentHotSpotsAreVisibleWhenNavigatingAwayFromSphere();
+
+        var element = document.getElementById("playForward");
+            element.hidden = true;
+
+
+        if (ShouldThePlayForwardButtonBeVisible == 1) {
+
+            var element = document.getElementById("playForward");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            ShouldThePlayForwardButtonBeVisible = 0;
+
+
+        }
+        //Only show the hitboxes again if the video has played up to the main menu
+        if (video.currentTime > 21) {
+            //SHOW START CLICK DIV
+            var element = document.getElementById("StartClick");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+        if (video.currentTime > 10 && video.currentTime < 22) {
+
+
+            //SHOW START CLICK DIV
+            var element = document.getElementById("StartClick");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+        if (video.currentTime > 4 && video.currentTime < 10) {
+            //HIDE BLUE SPHERE HITBOX
+            var element3 = document.getElementById("ClickBlueSphere");
+            element3.classList.toggle("overlayDiv");
+            element3.classList.toggle(".overlayDivHidden");
+
+            //SHOW START CLICK DIV
+            var element = document.getElementById("StartClick");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+        video.currentTime = 0;
+
+        //Hide Main 1 so it can't be clicked again
+        var element = document.getElementById("main1");
+        element.classList.toggle("overlayDiv");
+        element.classList.toggle(".overlayDivHidden");
+
+        //If the other menu items have been hidden at any stage make them visible again
+        var isVisible = isElementVisible("main2");
+        //alert(isVisible);
+        if (isVisible != true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("main2");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+        //If the other menu items have been hidden at any stage make them visible again
+        var isVisible = isElementVisible("main3");
+        //alert(isVisible);
+        if (isVisible != true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("main3");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+        //If the other menu items have been hidden at any stage make them visible again
+        var isVisible = isElementVisible("main4");
+        //alert(isVisible);
+        if (isVisible != true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("main4");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+
+    });
+    document.getElementById('main2').addEventListener('click', function () {
+        CheckIfPentHotSpotsAreVisibleWhenNavigatingAwayFromPents();
+        CheckIfPentHotSpotsAreVisibleWhenNavigatingAwayFromVentruvianMan();
+
+        var element = document.getElementById("playForward");
+            
+            element.classList.toggle(".overlayDivHidden");
+            element.hidden = true;
+
+        if (ShouldThePlayForwardButtonBeVisible == 1) {
+
+            var element = document.getElementById("playForward");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            ShouldThePlayForwardButtonBeVisible = 0;
+
+        }
+
+
+        if (video.currentTime > 4 && video.currentTime < 10) {
+
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("ClickBlueSphere");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+        }
+        if (video.currentTime < 4) {
+            //HIDE START DIV
+            var element = document.getElementById("StartClick");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+        }
+        startCountdown(21);
+        video.currentTime = 118;
+        PlayTimeInSeconds = 21;
+        //Buttons can be clicked at any time because of the 1
+        playToTime(PlayTimeInSeconds);
+
+        var element = document.getElementById("SphereInfoHotspot1");
+        element.classList.toggle("overlayDiv");
+        element.classList.toggle(".overlayDivHidden");
+
+
+        //Hide Main 2 so it can't be clicked again
+        var element = document.getElementById("main2");
+        element.classList.toggle("overlayDiv");
+        element.classList.toggle(".overlayDivHidden");
+
+        //If the other menu items have been hidden at any stage make them visible again
+        var isVisible = isElementVisible("main1");
+        //alert(isVisible);
+        if (isVisible != true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("main1");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+        //If the other menu items have been hidden at any stage make them visible again
+        var isVisible = isElementVisible("main3");
+        //alert(isVisible);
+        if (isVisible != true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("main3");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+        //If the other menu items have been hidden at any stage make them visible again
+        var isVisible = isElementVisible("main4");
+        //alert(isVisible);
+        if (isVisible != true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("main4");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+
+    });
+    document.getElementById('main3').addEventListener('click', function () {
+
+         ////////////////////////////////////////////////////////////////////////////////////////////////////
+         ballFlag = 3;
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        //CheckIfPentHotSpotsAreVisibleWhenNavigatingAwayFromPents();
+        CheckIfPentHotSpotsAreVisibleWhenNavigatingAwayFromVentruvianMan();
+        CheckIfPentHotSpotsAreVisibleWhenNavigatingAwayFromSphere();
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        ShouldThePlayForwardButtonBeVisible = 1;
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        // if (ShouldThePlayForwardButtonBeVisible == 1) {
+        //     var element = document.getElementById("playForward");
+        //     element.classList.toggle("overlayDiv");
+        //     element.classList.toggle(".overlayDivHidden");
+        //     ShouldThePlayForwardButtonBeVisible = 0;
+        // }
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        if (video.currentTime > 4 && video.currentTime < 10) {
+
+
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("ClickBlueSphere");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+        }
+        if (video.currentTime == 0) {
+            //HIDE START DIV
+            var element = document.getElementById("StartClick");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+        }
+        startCountdown(5);
+        //Go to frame 61 & Then play for 5 seconds
+        video.currentTime = 61;
+        var PlayTimeInSeconds = 5;
+        playToTime(PlayTimeInSeconds);
+        //AFTER X AMOUNT OF SECONDS SHOW STARTER PENT BUTTON  - THERE ARE 5 IN ROTATIONN BUT ONLY ONE IS DISPLAYED INITIALLY
+        setTimeout(function () {
+            //////////////////////////////////////////////////////////////////////////////////////////
+            var element = document.getElementById("playForward");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+             ////////////////////////////////////////////////////////////////////////////////////////////
+
+            //HIDE START CLICK DIV
+            var element = document.getElementById("PentButton1");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden"); // I DON'T KNOW WHY BUT IF YOU DON'T INCLUDE THE DOT, THE SCRIPT BREAKS
+
+            var element = document.getElementById("PentButton2");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden"); // I DON'T KNOW WHY BUT IF YOU DON'T INCLUDE THE DOT, THE SCRIPT BREAKS
+
+            var element = document.getElementById("PentButton3");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden"); // I DON'T KNOW WHY BUT IF YOU DON'T INCLUDE THE DOT, THE SCRIPT BREAKS
+
+            var element = document.getElementById("PentButton4");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden"); // I DON'T KNOW WHY BUT IF YOU DON'T INCLUDE THE DOT, THE SCRIPT BREAKS
+
+            var element = document.getElementById("PentButton5");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden"); // I DON'T KNOW WHY BUT IF YOU DON'T INCLUDE THE DOT, THE SCRIPT BREAKS
+
+
+        }, 5000);
+
+        //Hide Main 3 so it can't be clicked again
+        var element = document.getElementById("main3");
+        element.classList.toggle("overlayDiv");
+        element.classList.toggle(".overlayDivHidden");
+
+        //If the other menu items have been hidden at any stage make them visible again
+        var isVisible = isElementVisible("main1");
+        //alert(isVisible);
+        if (isVisible != true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("main1");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+        //If the other menu items have been hidden at any stage make them visible again
+        var isVisible = isElementVisible("main2");
+        //alert(isVisible);
+        if (isVisible != true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("main2");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+        //If the other menu items have been hidden at any stage make them visible again
+        var isVisible = isElementVisible("main4");
+        //alert(isVisible);
+        if (isVisible != true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("main4");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+
+    });
+    document.getElementById('main4').addEventListener('click', function () {
+        // Execute the function to hide all block elements
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        ballFlag = 4;
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        CheckIfPentHotSpotsAreVisibleWhenNavigatingAwayFromPents();
+        //CheckIfPentHotSpotsAreVisibleWhenNavigatingAwayFromVentruvianMan();
+        CheckIfPentHotSpotsAreVisibleWhenNavigatingAwayFromSphere();
+
+            
+        
+        //////////////////////////////////////////////////////////////////////////////////////////
+            var element = document.getElementById("playForward");
+            
+            element.classList.toggle(".overlayDivHidden");
+            element.hidden = true;
+             ////////////////////////////////////////////////////////////////////////////////////////////
+
+
+        ShouldThePlayForwardButtonBeVisible = 1;
+
+        //After skipping to the ventruvian man (earth), run the rotator text blue and red and make it do one rotation
+        if (video.currentTime == 0) {
+            //HIDE START DIV
+            var element = document.getElementById("StartClick");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+        }
+        if (video.currentTime > 4 && video.currentTime < 10) {
+
+
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("ClickBlueSphere");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+
+        }
+        startCountdown(21);
+        video.currentTime = 15;
+        var PlayTimeInSeconds = 21;
+        playToTime(PlayTimeInSeconds);
+        setTimeout(() => {
+            ///////////////////////////////////////////////////////////////////////////////////////////////
+            var element = document.getElementById("playForward");
+            ///////////////////////////////////////////////////////////////////////////////////////////////
+            element.hidden = false;
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            var element = document.getElementById("vent-icons-blue-esig");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            var element = document.getElementById("vent-icons-blue-internet");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            var element = document.getElementById("vent-icons-red-payments");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+            var element = document.getElementById("vent-icons-red-accounts");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+
+        }, "21000");
+
+
+        //Hide Main 1 so it can't be clicked again
+        var element = document.getElementById("main4");
+        element.classList.toggle("overlayDiv");
+        element.classList.toggle(".overlayDivHidden");
+
+        //If the other menu items have been hidden at any stage make them visible again
+        var isVisible = isElementVisible("main1");
+        //alert(isVisible);
+        if (isVisible != true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("main1");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+        //If the other menu items have been hidden at any stage make them visible again
+        var isVisible = isElementVisible("main2");
+        //alert(isVisible);
+        if (isVisible != true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("main2");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+        //If the other menu items have been hidden at any stage make them visible again
+        var isVisible = isElementVisible("main3");
+        //alert(isVisible);
+        if (isVisible != true) {
+            //HIDE CLICK SPHERE
+            var element = document.getElementById("main3");
+            element.classList.toggle("overlayDiv");
+            element.classList.toggle(".overlayDivHidden");
+        }
+    });
+
+    //HOTSPOT EVENT LISTENERS LOAD THE CONTENT AREA DIV WITH THE CLOSE BUTTON----------------------------------------------------------------------------------------------------
+    document.getElementById('SpherecloseButton1').addEventListener('click', SpherecloseFullScreenDiv1);
+    document.getElementById('SpherecloseButton2').addEventListener('click', SpherecloseFullScreenDiv2);
+    document.getElementById('SpherecloseButton3').addEventListener('click', SpherecloseFullScreenDiv3);
+    document.getElementById('SpherecloseButton4').addEventListener('click', SpherecloseFullScreenDiv4);
+
+    document.getElementById('closeButton1').addEventListener('click', closeFullScreenDiv1);
+    document.getElementById('closeButton2').addEventListener('click', closeFullScreenDiv2);
+    document.getElementById('closeButton3').addEventListener('click', closeFullScreenDiv3);
+    document.getElementById('closeButton4').addEventListener('click', closeFullScreenDiv4);
+    document.getElementById('closeButton5').addEventListener('click', closeFullScreenDiv5);
+    /////////////////////////////////////////////////////////////////////////////////////////
+
+    //Ventruvian Man Icons : Red
+    document.getElementById('vent-icons-red-admin-close-button').addEventListener('click', closeAdminDisplayGroup);
+    document.getElementById('vent-icons-red-payments-close-button').addEventListener('click', closePaymentsDisplayGroup);
+    document.getElementById('vent-icons-red-accounts-close-button').addEventListener('click', closeAccountsDisplayGroup);
+    document.getElementById('vent-icons-red-crm-close-button').addEventListener('click', closeCRMDisplayGroup);
+    document.getElementById('vent-icons-red-sales-close-button').addEventListener('click', closeSalesDisplayGroup);
+    document.getElementById('vent-icons-red-fulfillment-close-button').addEventListener('click', closeFufillmentDisplayGroup);
+
+    //Ventruvian Man Icons : Blue
+    document.getElementById('vent-icons-blue-internet-close-button').addEventListener('click', closeInternetDisplayGroup);
+    document.getElementById('vent-icons-blue-whatsapp-close-button').addEventListener('click', closeWhatsappDisplayGroup);
+    document.getElementById('vent-icons-blue-text-close-button').addEventListener('click', closeTextDisplayGroup);
+    document.getElementById('vent-icons-blue-voip-close-button').addEventListener('click', closeVoipDisplayGroup);
+    document.getElementById('vent-icons-blue-esig-content-close-button').addEventListener('click', closeEsignatureDisplayGroup);
+    document.getElementById('vent-icons-blue-email-close-button').addEventListener('click', closeEmailDisplayGroup);
+
+    //Sphere
+    document.getElementById('SpherecloseButton1').addEventListener('click', SpherecloseFullScreenDiv1);
+
+    //ventruvian man event listeners for hotspots
+    document.getElementById('playForward').addEventListener('click', handleForward);
+    //-----Red Icons-----\\
+
+    //Payments
+    document.getElementById('vent-icons-red-payments').addEventListener('click', displayPaymentsContentDivGroup);
+    document.getElementById('vent-icons-red-payments-alt').addEventListener('click', displayPaymentsContentDivGroup);
+    //CRM
+    document.getElementById('vent-icons-red-crm').addEventListener('click', displayCRMContentDivGroup);
+    document.getElementById('vent-icons-red-crm-alt').addEventListener('click', displayCRMContentDivGroup);
+    //Sales
+    document.getElementById('vent-icons-red-sales').addEventListener('click', displaySalesContentDivGroup);
+    document.getElementById('vent-icons-red-sales-alt').addEventListener('click', displaySalesContentDivGroup);
+    //Admin
+    document.getElementById('vent-icons-red-admin').addEventListener('click', displayAdminContentDivGroup);
+    document.getElementById('vent-icons-red-admin-alt').addEventListener('click', displayAdminContentDivGroup);
+    //Accounts
+    document.getElementById('vent-icons-red-accounts').addEventListener('click', displayAccountsContentDivGroup);
+    document.getElementById('vent-icons-red-accounts-alt').addEventListener('click', displayAccountsContentDivGroup);
+
+    document.getElementById('vent-icons-red-fulfillment').addEventListener('click', displayFulfillmentContentDivGroup);
+
+    //-----Blue Icons-----\\
+
+    //Internet
+    document.getElementById('vent-icons-blue-internet').addEventListener('click', displayInternetIconsContentDivGroup);
+    document.getElementById('vent-icons-blue-internet-alt').addEventListener('click', displayInternetIconsContentDivGroup);
+
+    //E-Signature
+    document.getElementById('vent-icons-blue-esig').addEventListener('click', displayESignatureContentDivGroup);
+    document.getElementById('vent-icons-blue-esig-alt').addEventListener('click', displayESignatureContentDivGroup);
+
+    //Voip
+    document.getElementById('vent-icons-blue-voipicon').addEventListener('click', displayVoipIconContentDivGroup);
+    document.getElementById('vent-icons-blue-voipicon-alt').addEventListener('click', displayVoipIconContentDivGroup);
+
+    //Text
+    document.getElementById('vent-icons-blue-text').addEventListener('click', displayTextIconContentDivGroup);
+    document.getElementById('vent-icons-blue-text-alt').addEventListener('click', displayTextIconContentDivGroup);
+
+    //Whatsapp
+    document.getElementById('vent-icons-blue-whatsapp').addEventListener('click', displayWhatsappContentDivGroup);
+    document.getElementById('vent-icons-blue-whatsapp-alt').addEventListener('click', displayWhatsappContentDivGroup);
+
+    //Email
+    document.getElementById('vent-icons-blue-email').addEventListener('click', displayEmailContentDivGroup);
+    document.getElementById('vent-icons-blue-email-alt').addEventListener('click', displayEmailContentDivGroup);
+
+    //END EVENT LISTENERS AND START INIT LOGIC                                                                 //
+
+    //INIT EVENT LISTENERS
+    window.addEventListener('resize', setButtonPositionsAndSizes);
+    //INIT BUTTON SIZES
+    video.onloadedmetadata = setButtonPositionsAndSizes;
+    //RESIZE THE HITBOXES IF VIDEO IS PLAYING WHEN SCREEN IS RESIZED
+    video.onplay = function () {
+        setTimeout(setButtonPositionsAndSizes, 1); // Adjust positions 1 seconds after play
+    };
+
+</script>
+<script>
+    let countdown; // Variable to store the countdown interval function
+
+    function startCountdown(seconds) {
+        const timerDisplay = document.getElementById('countdownTimer');
+        clearInterval(countdown); // Clear existing countdown if any
+        timerDisplay.style.display = 'block'; // Show the timer
+
+        const endTime = Date.now() + seconds * 1000; // Calculate end time
+        displayTimeLeft('<img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEfUlEQVR4nO1ZzW8bRRR/oiCHr0QhxgkUpErlBFJvIPgr+KoAwf+QHFOQAKG2wAEKtCGo4tzL7tip0jaiboNnbJIAKmqC16CkCSSNQ9bOeq5QLg+9cWOcWSfe2d04IPlJT1qtd2Z+v5k378sAXelKV6KLZR0Ci78ANn8HmEgD4yVgXALjf99Venbqv4m3IZ17Ht7He+DAZUI8CUx8DEyUgQk0Ulusg80/gnTuic4Dt/KPgi3OA+N3jIH7lN8BW4xD5tpAZ8Az/iYwXosO3HciHjDx+v4BP3/jPmD8690APHyxgK8WFvALZwWn1zZwya1ixasppWd697mzjK8U5vGhicJeJ/IV5HL3xgt+8sYDwMRUqwWPXpnDc6UV3PBqKKUMpPTt2dIKHp36fpfT4JfVmvHtvB98TyaPJxeWsFoLDlzXilfDD+aXMJHJtyYRy0m0MBvauZn1P9oCBACl7b7LrpZxcHKm1b0YjwbeEm/pkx67+qOy6SA7HJSAlBKdzQo+880PrU7itXDgya0xsaXvfFDwpgTkXRIp/STIO13IJc0JKD//70Rkp/nb7c0mCgEpJX67uqHul+aZxszAU3TUghRdWNNLGoaAlBJP/PSrfgp/gXX9cHAC9fSgMcFTU3OhvE1YAutbXgtT4h8GA09JFuUpTYPJz5uCiEJASomfFG/pF7qsksa2QlmlFmFNglRcBMpbnj9iW+K59gTqKXFj0PHCQigAUQlIKfHl/Lx+CicCEBCZ5kGU2xwUgc+cZf0e2O0J1AuPxiBKwkwXdl0Xh4eHGwRGRkbUO9N5sqtl/QR+DkJgR6p8yyBwbSsB3gbfTMJ0nkW3qhPYCkJgh/93Q1zgwcHBOvDTXyKcGlPPqVTKeJ5Nz/PHg04QGBoaqhMg8CfPqedkMtkxArX9MKFEIoHZbLYjJuTEcYmJBJ3EwMAA9vT0KBK9vb1GJLLhLrFqfTQGURloSkDXXC6H/f39xiTOFDU3yoRlHMioho1KICyJF/VAZvPR9gSo6dQ06MGJggrrcZCYnp7Gvr6+BgnHcXb9ltaktXcQSPNnAyZz/HbzQCrA4yDQfBKjo6N7fkemq9UEa8G7edQx0yoxKsDjIlEqlfb83fVqeOTKnG7/p4OB36Wgoe5BXATa6Xs3FyMWNOoUxLheUpJb22/wV38vYyKj2b7Nz4KxWLOPAOPV5omoSipuVvYN/C9uFR+7NOsv6kP3Ta38G5odqtYHdQ/iBl/crODTrdoq6fxxiCTUq9QmTU7O4OXf1mM1m1TLxlYY0/GdgnVIL3K27wR1D6LECNer4bs3F/02X3ebl+Jr8lKjlXqVvkXq94IKcBMi9C1VW0f8rnLb7ifBmr0fYhXaDc0z6RGbaljKX66tbqhMknaYlJ7p3afFZXwpP++PsEwzm9jb681CvUqt5RiL2rwS/cKaudgxFWCig/9T7fqFQn9nwO8gcv2w6phpuVMw5Wtgi1Nw8bvH4cCFkixqOlHfhlofVHioyo7SEaX0vKB+o5SYssr/xN+sXekK/O/lH2hy3kVyPIHvAAAAAElFTkSuQmCC\" style="width:22px"> &nbsp;'+'... ' + seconds); // Display initial time
+
+        countdown = setInterval(() => {
+            const secondsLeft = Math.round((endTime - Date.now()) / 1000);
+
+            // Check if we should stop the countdown
+            if (secondsLeft < 0) {
+                displayTimeLeft('<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADEUlEQVR4nO2Z2U5TURSG9zPACyitohcqivAKUGqMhCgUqQqiCMhQaAuiomGoEMLgwFBAREWGAA6EoESN0RhjtBoZZBAQaBEUFI0ah4j5TYsKbc8pXSTAvuiffEnT8+911pdzelXGXHHFFVe4TAWeBlTCYKrEM6wsBtN5PJeRBfQzBlP5bwN4QD9jMJIFymaegCcYNSW/HoMnGDXnfj4CTzBqTv94CJ5g1BR+fwCeYNTkf7sPnmDU5H29B55g1OR+uQueYNSc+nwby0HW9E0o7+QhfaLFYY8skP2pHUtNxvs2+OQo4Ra6FVKVP9JGmkS7ZIGMj7ewlJyYaoW3LgzuYT4WATeFN9art4n2yQInp9uwVByfbIG3bjfclb5WAuvUctEzZIH0D61YCo6+uwHv3LDZ5ZVzApJEP6iH60XPkQWOTbXAEerRBgS365D29qrD3nzM3c3ZoXPLK2cFpMkBSB6uc3iWLJA2eR1iJA3XYq1WblnAKysEKeNNot1/pIw3Y0vO39dmHpJkGVSDNQueJwukvrsGMTyPbLdawitbAe14o2jffM3csV1+jUaOxKEroufmQxbQTjRDDM9Ua4HZJ6GAeqzBrmv+znzNti/VyBE/cFn0HraQBZLHGyHG4YGLkGoD7JbamBmMRGP9/16iqR5eOpt3XukLjyQZYvqrRecLQRZQvWmAI2JeXYBUYy+xIXMX4kdrEW+sxSadQnD5Q31VDmerBCALJIzVYSGi+qogUQs/CTN2P1h1gOWMM7MTbCALxBlr4QwHeysh0cjslrVltcofB3oqnJoZJwBZIHa0Bs4S2VPuUMK8/P6X5U7PixWALBA9cgkUInr0ghKrVH4I7y4jzYoWgCwQ9boaVMK7S+Gh9rdafm9nCXlOlABkgcihKiwGZWcxJClyC+bPi50TaQNZIGKwEjzBqNk3UAGeYNTs6deDJxg1YX2l4AlGTWhvMXiCURPScxY8wajZ2X0GPMGoCeoqNAV1FYELOovof3Ds6CiUBXYUGAM7C7CidBQYA1/k+5MFXHHFFVfYcuQPufnEgn4sn/0AAAAASUVORK5CYII=" style="width:32px">');
+
+                setTimeout(() => {
+                    clearInterval(countdown);
+                    timerDisplay.style.display = 'none'; // Hide the timer when countdown ends
+
+                }, "1500");
+                return;
+            }
+            if (secondsLeft != 0) {
+                // Display the remaining time
+                displayTimeLeft('<img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEfUlEQVR4nO1ZzW8bRRR/oiCHr0QhxgkUpErlBFJvIPgr+KoAwf+QHFOQAKG2wAEKtCGo4tzL7tip0jaiboNnbJIAKmqC16CkCSSNQ9bOeq5QLg+9cWOcWSfe2d04IPlJT1qtd2Z+v5k378sAXelKV6KLZR0Ci78ANn8HmEgD4yVgXALjf99Venbqv4m3IZ17Ht7He+DAZUI8CUx8DEyUgQk0Ulusg80/gnTuic4Dt/KPgi3OA+N3jIH7lN8BW4xD5tpAZ8Az/iYwXosO3HciHjDx+v4BP3/jPmD8690APHyxgK8WFvALZwWn1zZwya1ixasppWd697mzjK8U5vGhicJeJ/IV5HL3xgt+8sYDwMRUqwWPXpnDc6UV3PBqKKUMpPTt2dIKHp36fpfT4JfVmvHtvB98TyaPJxeWsFoLDlzXilfDD+aXMJHJtyYRy0m0MBvauZn1P9oCBACl7b7LrpZxcHKm1b0YjwbeEm/pkx67+qOy6SA7HJSAlBKdzQo+880PrU7itXDgya0xsaXvfFDwpgTkXRIp/STIO13IJc0JKD//70Rkp/nb7c0mCgEpJX67uqHul+aZxszAU3TUghRdWNNLGoaAlBJP/PSrfgp/gXX9cHAC9fSgMcFTU3OhvE1YAutbXgtT4h8GA09JFuUpTYPJz5uCiEJASomfFG/pF7qsksa2QlmlFmFNglRcBMpbnj9iW+K59gTqKXFj0PHCQigAUQlIKfHl/Lx+CicCEBCZ5kGU2xwUgc+cZf0e2O0J1AuPxiBKwkwXdl0Xh4eHGwRGRkbUO9N5sqtl/QR+DkJgR6p8yyBwbSsB3gbfTMJ0nkW3qhPYCkJgh/93Q1zgwcHBOvDTXyKcGlPPqVTKeJ5Nz/PHg04QGBoaqhMg8CfPqedkMtkxArX9MKFEIoHZbLYjJuTEcYmJBJ3EwMAA9vT0KBK9vb1GJLLhLrFqfTQGURloSkDXXC6H/f39xiTOFDU3yoRlHMioho1KICyJF/VAZvPR9gSo6dQ06MGJggrrcZCYnp7Gvr6+BgnHcXb9ltaktXcQSPNnAyZz/HbzQCrA4yDQfBKjo6N7fkemq9UEa8G7edQx0yoxKsDjIlEqlfb83fVqeOTKnG7/p4OB36Wgoe5BXATa6Xs3FyMWNOoUxLheUpJb22/wV38vYyKj2b7Nz4KxWLOPAOPV5omoSipuVvYN/C9uFR+7NOsv6kP3Ta38G5odqtYHdQ/iBl/crODTrdoq6fxxiCTUq9QmTU7O4OXf1mM1m1TLxlYY0/GdgnVIL3K27wR1D6LECNer4bs3F/02X3ebl+Jr8lKjlXqVvkXq94IKcBMi9C1VW0f8rnLb7ifBmr0fYhXaDc0z6RGbaljKX66tbqhMknaYlJ7p3afFZXwpP++PsEwzm9jb681CvUqt5RiL2rwS/cKaudgxFWCig/9T7fqFQn9nwO8gcv2w6phpuVMw5Wtgi1Nw8bvH4cCFkixqOlHfhlofVHioyo7SEaX0vKB+o5SYssr/xN+sXekK/O/lH2hy3kVyPIHvAAAAAElFTkSuQmCC\" style="width:22px"> &nbsp;'+'... ' + secondsLeft);
+            }
+        }, 1000);
+    }
+    function displayTimeLeft(seconds) {
+        const timerDisplay = document.getElementById('countdownTimer');
+        timerDisplay.innerHTML = seconds;
+
+    }
+
+</script>
+</body>
+</html>
+<!--
+
+Built from SCRATCH BY JULIAN RIGOTTI OF INTELLIGENT MAPS PTY LTD. Phone +39 380 289 4747 - BUILT FOR BLACKICE.CO.ZA (SUB CONTRACTED)
+
+-->
